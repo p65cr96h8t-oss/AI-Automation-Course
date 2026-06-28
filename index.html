@@ -210,6 +210,57 @@
   .month-card-header { padding: 12px 16px 10px; border-bottom: 1px solid var(--border); background: linear-gradient(90deg, var(--teal-dim), transparent); }
   .month-card-label { display: block; font-size: 13px; font-weight: 700; color: var(--teal); }
   .month-card-body { padding: 14px 16px; font-size: 13.5px; color: var(--muted2); line-height: 1.75; }
+
+  /* summary page */
+  .summary-page { max-width: 680px; padding: 60px 48px; }
+  @media (max-width: 768px) { .summary-page { padding: 40px 20px; } }
+  .summary-hero { text-align: center; margin-bottom: 52px; }
+  .summary-icon { font-size: 52px; margin-bottom: 20px; }
+  .summary-title { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; background: linear-gradient(135deg, #ffffff 30%, var(--teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
+  .summary-sub { font-size: 16px; color: var(--muted2); line-height: 1.65; max-width: 480px; margin: 0 auto; }
+  .summary-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 40px; }
+  @media (max-width: 500px) { .summary-stats { grid-template-columns: 1fr; } }
+  .stat-card { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center; }
+  .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+  .summary-section { margin-bottom: 32px; }
+  .summary-section-title { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; padding-left: 14px; border-left: 3px solid var(--teal); }
+  .summary-items { display: flex; flex-direction: column; gap: 8px; }
+  .summary-item { display: flex; align-items: flex-start; gap: 10px; background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 13px; color: var(--muted2); line-height: 1.5; }
+  .summary-item-icon { color: var(--green); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .summary-cta { background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(6,182,212,0.03)); border: 1px solid rgba(6,182,212,0.25); border-radius: 14px; padding: 28px 24px; text-align: center; position: relative; overflow: hidden; margin-top: 40px; }
+  .summary-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--teal), transparent); }
+  .summary-cta-title { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .summary-cta-sub { font-size: 14px; color: var(--muted2); margin-bottom: 20px; line-height: 1.6; }
+  .summary-cta-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn-restart { padding: 10px 22px; background: var(--surface2); color: var(--muted2); border: 1px solid var(--border); border-radius: 7px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s; }
+  .btn-restart:hover { color: var(--text); border-color: var(--teal); }
+  .btn-finish-cta { padding: 10px 26px; background: linear-gradient(135deg, var(--teal), #0891b2); color: #fff; border: none; border-radius: 7px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; box-shadow: 0 4px 16px var(--teal-glow); transition: all 0.15s; }
+  .btn-finish-cta:hover { background: linear-gradient(135deg, #22d3ee, var(--teal)); transform: translateY(-1px); }
+  .summary-progress-ring { display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
+  .ring-wrap { position: relative; width: 100px; height: 100px; }
+  .ring-svg { transform: rotate(-90deg); }
+  .ring-bg { fill: none; stroke: var(--border); stroke-width: 6; }
+  .ring-fill { fill: none; stroke: url(#ringGrad); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 283; stroke-dashoffset: 0; transition: stroke-dashoffset 1s ease; }
+  .ring-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .ring-pct { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1; }
+  .ring-done { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-top: 2px; }
+
+  /* module locked overlay */
+  .locked-overlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; }
+  .locked-blur { position: absolute; inset: 0; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: rgba(6,11,11,0.6); }
+  .locked-card { position: relative; z-index: 1; background: linear-gradient(135deg, #0c1e1e, #0a1414); border: 1px solid #06b6d430; border-radius: 16px; padding: 36px 32px; max-width: 320px; width: 90%; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,0.6); }
+  .locked-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #06b6d4, transparent); border-radius: 16px 16px 0 0; }
+  .locked-icon { width: 52px; height: 52px; margin: 0 auto 16px; background: #06b6d418; border: 1px solid #06b6d430; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .locked-title { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .locked-sub { font-size: 13px; color: #5a8080; line-height: 1.6; margin-bottom: 24px; }
+  .locked-prev { font-size: 12px; color: #3a6060; margin-bottom: 20px; }
+  .locked-prev strong { color: #06b6d4; }
+  .locked-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .locked-btn-back { padding: 9px 18px; background: #121e1e; color: #5a8080; border: 1px solid #1a2e2e; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s; }
+  .locked-btn-back:hover { color: #fff; border-color: #06b6d440; }
+  .locked-btn-goto { padding: 9px 18px; background: linear-gradient(135deg, #06b6d4, #0891b2); color: #fff; border: none; border-radius: 7px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s; }
+  .locked-btn-goto:hover { background: linear-gradient(135deg, #22d3ee, #06b6d4); }
 </style>
 </head>
 <body>
@@ -220,7 +271,7 @@
       <div class="course-tag">Ethan's Course</div>
       <div class="course-title">Build & Sell AI Automations</div>
       <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
-      <div class="progress-label" id="progressLabel">0 of 11 modules complete</div>
+      <div class="progress-label" id="progressLabel">0 of 15 modules complete</div>
     </div>
     <div id="navContainer"></div>
   </aside>
@@ -236,7 +287,8 @@ const NAV_STRUCTURE = [
   { label: "Foundations", modules: [1,2,3,4,5] },
   { label: "Building", modules: [6,7] },
   { label: "Selling", modules: [8,9,10] },
-  { label: "Advanced", modules: [11,12,13] }
+  { label: "Advanced", modules: [11,12,13,14] },
+  { label: "Complete", modules: [15] }
 ];
 
 const modules = [
@@ -1320,6 +1372,17 @@ MESSAGE TO CLASSIFY:
   ]
 }
 
+,
+
+// ─── 15: FINISH ──────────────────────────────────────────────────────────────
+{
+  badge:"Module 15 · Complete", title:"Course Complete", readTime:"",
+  subtitle:"You've covered everything. Here's what to do next.",
+  isSummary: true,
+  sections:[],
+  checklist:[]
+}
+
 ]; // end modules
 
 // ─── STATE ────────────────────────────────────────────────────────────────────
@@ -1343,9 +1406,24 @@ function buildNav() {
       const item = document.createElement('div');
       item.className = 'nav-item' + (idx === 0 ? ' active' : '');
       item.dataset.module = idx;
-      item.onclick = () => showModule(idx);
+      item.onclick = () => {
+        // Allow: already completed, or it's the next unlocked module (previous is done), or going back
+        const prevDone = idx === 0 || completedModules.has(idx - 1);
+        const alreadySeen = completedModules.has(idx) || idx === currentModule;
+        if (alreadySeen || prevDone) {
+          showModule(idx);
+        } else {
+          // Find the last completed module to redirect to
+          let lastDone = 0;
+          for (let i = 0; i < modules.length - 1; i++) {
+            if (completedModules.has(i)) lastDone = i + 1;
+          }
+          showLockedOverlay(idx, lastDone);
+        }
+      };
       const isStart = section.label === 'Start Here';
-      item.innerHTML = `<div class="check" id="check-${idx}">${isStart ? '★' : idx}</div><div class="nav-label">${m.title}</div>`;
+      const isComplete = section.label === 'Complete';
+      item.innerHTML = `<div class="check" id="check-${idx}">${isStart ? `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>` : isComplete ? `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6.5 5H4a1 1 0 0 0-1 1v3a4 4 0 0 0 4 4h1M17.5 5H20a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4h-1"/><path d="M7 5a5 5 0 0 0 10 0V3H7v2z"/></svg>` : idx}</div><div class="nav-label">${m.title}</div>`;
       sec.appendChild(item);
     });
     container.appendChild(sec);
@@ -1360,7 +1438,8 @@ function updateNav() {
     item.classList.toggle('active', i === currentModule);
     item.classList.toggle('completed', completedModules.has(i));
     if (completedModules.has(i)) check.innerHTML = '✓';
-    else if (i === 0) check.innerHTML = '★';
+    else if (i === 0) check.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`;
+    else if (i === modules.length - 1) check.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6.5 5H4a1 1 0 0 0-1 1v3a4 4 0 0 0 4 4h1M17.5 5H20a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4h-1"/><path d="M7 5a5 5 0 0 0 10 0V3H7v2z"/></svg>`;
     else check.innerHTML = i;
   });
 }
@@ -1506,9 +1585,20 @@ function showModule(idx) {
   const m = modules[idx];
   const isCompleted = completedModules.has(idx);
   const isLast = idx === modules.length - 1;
+  // Module 15 is the summary/finish page
+  if (isLast) { showSummary(); updateNav(); return; }
 
   const prevBtn = idx > 0 ? `<button class="btn btn-secondary" onclick="showModule(${idx-1})">← Back</button>` : '';
-  const nextBtn = !isLast ? `<button class="btn btn-primary" id="next-btn-${idx}" onclick="showModule(${idx+1})" ${isCompleted?'':'disabled'} style="opacity:${isCompleted?'1':'0.35'};cursor:${isCompleted?'pointer':'not-allowed'}">Next →</button>` : '';
+  // Module 14 (last content module): show Finish button gated on ALL previous modules done
+  const allPrevDone = Array.from({length: modules.length - 1}, (_, i) => i).every(i => completedModules.has(i));
+  const finishReady = isLast ? false : idx === modules.length - 2 && allPrevDone && isCompleted;
+  const nextBtn = (idx < modules.length - 2)
+    ? `<button class="btn btn-primary" id="next-btn-${idx}" onclick="showModule(${idx+1})" ${isCompleted?'':'disabled'} style="opacity:${isCompleted?'1':'0.35'};cursor:${isCompleted?'pointer':'not-allowed'}">Next →</button>`
+    : idx === modules.length - 2
+      ? finishReady
+        ? `<button class="btn btn-primary" id="finish-btn" onclick="showModule(${modules.length-1})" style="background:linear-gradient(135deg,#4ade80,#16a34a);box-shadow:0 4px 16px rgba(74,222,128,0.35)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M8 21h8M12 17v4M6.5 5H4a1 1 0 0 0-1 1v3a4 4 0 0 0 4 4h1M17.5 5H20a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4h-1"/><path d="M7 5a5 5 0 0 0 10 0V3H7v2z"/></svg> Finish</button>`
+        : `<button class="btn btn-primary" id="finish-btn" disabled style="opacity:0.35;cursor:not-allowed" title="Mark all pages as done first"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M8 21h8M12 17v4M6.5 5H4a1 1 0 0 0-1 1v3a4 4 0 0 0 4 4h1M17.5 5H20a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4h-1"/><path d="M7 5a5 5 0 0 0 10 0V3H7v2z"/></svg> Finish</button>`
+      : '';
 
   const pageDoneSection = isCompleted
     ? `<div class="page-done-wrap"><span class="page-done-badge">✓ Page marked as done</span></div>`
@@ -1543,18 +1633,114 @@ function markComplete(idx) {
   completedModules.add(idx);
   updateProgress();
   updateNav();
-  // Replace the page-done section in place — no scroll
   const wrap = document.querySelector('.page-done-wrap');
   if (wrap) {
     wrap.innerHTML = '<span class="page-done-badge">✓ Page marked as done</span>';
   }
-  // Unlock the next button in place
+  const isLast = idx === modules.length - 1;
   const nextBtn = document.getElementById('next-btn-' + idx);
-  if (nextBtn) {
+  if (nextBtn && !isLast) {
     nextBtn.disabled = false;
     nextBtn.style.opacity = '1';
     nextBtn.style.cursor = 'pointer';
   }
+  // On last module: swap disabled Finish to active green Finish
+  // Check if finish button should unlock
+  const lastContentIdx = modules.length - 2;
+  const allPrevDone = Array.from({length: modules.length - 1}, (_, i) => i).every(i => completedModules.has(i));
+  const finishBtn = document.getElementById('finish-btn');
+  if (finishBtn && allPrevDone) {
+    finishBtn.disabled = false;
+    finishBtn.style.opacity = '1';
+    finishBtn.style.cursor = 'pointer';
+    finishBtn.style.background = 'linear-gradient(135deg,#4ade80,#16a34a)';
+    finishBtn.style.boxShadow = '0 4px 16px rgba(74,222,128,0.35)';
+    finishBtn.title = '';
+    finishBtn.onclick = () => showModule(modules.length - 1);
+  }
+}
+
+function showSummary() {
+  const total = modules.length;
+  const done = completedModules.size;
+  const pct = Math.round((done / total) * 100);
+  const circumference = 283;
+  const offset = circumference - (pct / 100) * circumference;
+
+  const keyPoints = [
+    'An AI workflow is a system where AI makes decisions inside an automated process — not a chatbot, a fully automated pipeline.',
+    'The DOE framework: Directives (rules), Orchestration (AI decides), Execution (code acts). Never mix them.',
+    'Your stack: n8n + Claude API + Supabase + Resend + Tally. Under £20/month to run.',
+    'The 5-part directive: Role, Task, Knowledge, Constraints, Format. Always include a fallback.',
+    'Test with 20+ varied inputs before going live. Build an error workflow. Monitor execution logs.',
+    'Pricing: build fee + monthly retainer. Client 1 free/cheap. Client 4+ £800+ build, £300/mo retainer.',
+    'The qualifying shortcut: fill in their contact form. No reply in 24hrs = your pitch.',
+    'The demo closes deals. Build one for their industry before every sales call.',
+    'MRR from retainers is worth more than one-off fees. 5 clients × £200/mo = £1,000 predictable income.',
+    'Productise: The Enquiry Engine, The Lead Capture System, The Weekly Digest. Fixed scope, fixed price.',
+  ];
+
+  document.getElementById('main').innerHTML = `
+    <div class="summary-page">
+      <div class="summary-hero">
+        <div class="summary-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6.5 5H4a1 1 0 0 0-1 1v3a4 4 0 0 0 4 4h1M17.5 5H20a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4h-1"/><path d="M7 5a5 5 0 0 0 10 0V3H7v2z"/></svg></div>
+        <h1 class="summary-title">You've completed the course.</h1>
+        <p class="summary-sub">You now know how to build, price, sell, and scale an AI automation business from scratch. The only thing left is to go do it.</p>
+      </div>
+
+      <div class="summary-progress-ring">
+        <div class="ring-wrap">
+          <svg class="ring-svg" width="100" height="100" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#06b6d4"/>
+                <stop offset="100%" style="stop-color:#4ade80"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="50" cy="50" r="45"/>
+            <circle class="ring-fill" cx="50" cy="50" r="45" style="stroke-dashoffset:${offset}"/>
+          </svg>
+          <div class="ring-text">
+            <div class="ring-pct">${pct}%</div>
+            <div class="ring-done">Done</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-stats">
+        <div class="stat-card">
+          <div class="stat-num">${total}</div>
+          <div class="stat-label">Modules</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">${done}</div>
+          <div class="stat-label">Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">New modules</div>
+        </div>
+      </div>
+
+      <div class="summary-section">
+        <div class="summary-section-title">What you now know</div>
+        <div class="summary-items">
+          ${keyPoints.map(p => `<div class="summary-item"><span class="summary-item-icon">✓</span>${p}</div>`).join('')}
+        </div>
+      </div>
+
+      <div class="summary-cta">
+        <div class="summary-cta-title">What's next?</div>
+        <div class="summary-cta-sub">Pick one business from your network, build the enquiry handler, and send them a Loom. That's the only next step that matters.</div>
+        <div class="summary-cta-btns">
+          <button class="btn-restart" onclick="showModule(0)">← Back to start</button>
+          <button class="btn-finish-cta" onclick="showModule(6)">Build your first workflow →</button>
+        </div>
+      </div>
+    </div>
+  `;
+  window.scrollTo(0, 0);
+  if (window.innerWidth <= 768) { document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').style.display = 'none'; }
 }
 
 // ─── SCROLL ANIMATIONS ────────────────────────────────────────────────────────
@@ -1591,6 +1777,49 @@ function initScrollAnimations() {
     el.classList.add('anim-fade-in');
     io.observe(el);
   });
+}
+
+// ─── LOCKED OVERLAY ──────────────────────────────────────────────────────────
+function showLockedOverlay(idx, lastDoneIdx) {
+  const m = modules[idx];
+  const prevModule = modules[idx - 1];
+  // Remove any existing overlay
+  const existing = document.getElementById('locked-overlay');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.className = 'locked-overlay';
+  overlay.id = 'locked-overlay';
+  overlay.innerHTML = `
+    <div class="locked-blur" onclick="closeLocked()"></div>
+    <div class="locked-card">
+      <div class="locked-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <div class="locked-title">Module Locked</div>
+      <div class="locked-sub">Complete previous modules to unlock</div>
+
+      <div class="locked-prev">Complete first: <strong>${prevModule ? prevModule.title : 'the previous module'}</strong></div>
+      <div class="locked-btns" style="margin-top:8px">
+        <button class="locked-btn-back" onclick="closeLocked()">Go back</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  // Animate in
+  overlay.style.opacity = '0';
+  overlay.style.transition = 'opacity 0.2s ease';
+  requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+}
+
+function closeLocked() {
+  const overlay = document.getElementById('locked-overlay');
+  if (!overlay) return;
+  overlay.style.opacity = '0';
+  setTimeout(() => overlay.remove(), 200);
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
