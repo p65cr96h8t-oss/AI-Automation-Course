@@ -8,22 +8,22 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #09080a;
-    --surface: #110e14;
-    --surface2: #1a1520;
-    --border: #2a2035;
-    --teal: #ff6b47;
-    --teal-dim: #ff6b4714;
-    --teal-glow: #ff6b4730;
+    --bg: #060b0b;
+    --surface: #0c1414;
+    --surface2: #121e1e;
+    --border: #1a2e2e;
+    --teal: #06b6d4;
+    --teal-dim: #06b6d418;
+    --teal-glow: #06b6d432;
     --teal-mid: #e85530;
-    --green: #00e5a0;
-    --green-dim: #00e5a012;
-    --accent2: #c084fc;
-    --accent2-dim: #c084fc14;
-    --accent3: #38bdf8;
-    --accent3-dim: #38bdf812;
+    --green: #4ade80;
+    --green-dim: #4ade8014;
+    --accent2: #06b6d4;
+    --accent2-dim: #06b6d414;
+    --accent3: #4ade80;
+    --accent3-dim: #4ade8012;
     --text: #ffffff;
-    --muted: #7a6e8a;
+    --muted: #3a6060;
     --muted2: #ccc8d8;
     --danger: #ff4d6a;
   }
@@ -37,97 +37,97 @@
   .sidebar-header { padding: 58px 20px 14px; border-bottom: 1px solid var(--border); }
   .course-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; color: var(--teal); text-transform: uppercase; margin-bottom: 5px; }
   .course-title { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; }
-  .progress-bar-wrap { margin-top: 12px; background: #2a2035; border-radius: 99px; height: 4px; overflow: hidden; }
-  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #ff6b47, #c084fc, #00e5a0); border-radius: 99px; transition: width 0.5s ease; }
+  .progress-bar-wrap { margin-top: 12px; background: #1a2e2e; border-radius: 99px; height: 4px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #06b6d4, #06b6d4, #4ade80); border-radius: 99px; transition: width 0.5s ease; }
   .progress-label { margin-top: 5px; font-size: 11px; color: var(--muted); }
   .nav-section { padding: 10px 0; border-bottom: 1px solid var(--border); }
   .nav-section-label { padding: 5px 18px; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
   .nav-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 18px; cursor: pointer; transition: background 0.15s; border-left: 2px solid transparent; }
   .nav-item:hover { background: var(--surface2); }
-  .nav-item.active { background: linear-gradient(90deg, #ff6b4718, transparent); border-left-color: var(--teal); }
+  .nav-item.active { background: linear-gradient(90deg, var(--teal-dim) 0%, transparent 80%); border-left: 3px solid var(--teal); }
   .check { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 9px; color: var(--muted); transition: all 0.2s; margin-top: 1px; }
-  .nav-item.completed .check { background: #00e5a018; border-color: var(--green); color: var(--green); font-size: 10px; }
-  .nav-label { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
-  .nav-item.active .nav-label, .nav-item.completed .nav-label { color: var(--text); }
+  .nav-item.completed .check { background: #4ade8018; border-color: var(--green); color: var(--green); font-size: 10px; }
+  .nav-label { font-size: 12.5px; color: var(--muted2); line-height: 1.35; letter-spacing: -0.01em; }
+  .nav-item.active .nav-label, .nav-item.completed .nav-label { color: var(--text); font-weight: 600; }
   .nav-item.active .nav-label { color: #ffffff; }
 
   /* MAIN */
   .main { flex: 1; padding: 52px 48px 52px 60px; max-width: 800px; min-width: 0; overflow-x: hidden; overflow-wrap: break-word; word-break: break-word; }
   .module-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
-  .module-badge { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #ff6b47; background: #ff6b4714; border: 1px solid #ff6b4730; padding: 3px 12px; border-radius: 99px; }
-  .read-time { font-size: 11px; color: #a09890; }
-  .module-title { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.02em; }
+  .module-badge { font-size: 9px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); background: var(--teal-dim); border: 1px solid var(--teal-glow); padding: 4px 14px; border-radius: 99px; box-shadow: 0 0 12px var(--teal-glow); }
+  .read-time { font-size: 11px; color: #4a7070; }
+  .module-title { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.02em; background: linear-gradient(135deg, #ffffff 30%, var(--teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .module-subtitle { font-size: 15px; color: #c8c4d4; margin-bottom: 36px; max-width: 580px; line-height: 1.65; }
 
   /* CONTENT */
   .content-block { margin-bottom: 30px; }
-  .section-heading { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 12px; margin-top: 36px; padding-top: 36px; border-top: 1px solid var(--border); letter-spacing: -0.01em; }
-  .section-heading:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .section-heading { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 14px; margin-top: 40px; padding: 0 0 0 14px; border-left: 3px solid var(--teal); border-top: none; letter-spacing: -0.01em; }
+  .section-heading:first-child { margin-top: 0; }
   .block-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
   .prose { font-size: 15px; color: #d8d0cc; line-height: 1.8; }
   .prose strong { color: var(--text); font-weight: 600; }
   .prose em { color: #d0c8c4; font-style: italic; }
 
-  .callout { background: #1e1828; border: 1px solid #3a2a50; border-left: 3px solid #c084fc; border-radius: 8px; padding: 16px 20px; margin: 22px 0; font-size: 14px; color: #e0d8f0; line-height: 1.75; }
+  .callout { background: linear-gradient(135deg, rgba(255,107,71,0.06), rgba(255,107,71,0.02)); border: 1px solid rgba(255,107,71,0.2); border-left: 3px solid var(--teal); border-radius: 10px; padding: 18px 20px; margin: 24px 0; font-size: 14px; color: var(--muted2); line-height: 1.8; }
   .callout strong { color: #ffffff; }
 
-  .tip-block { background: #0d1e1a; border: 1px solid #0a3028; border-left: 3px solid #00e5a0; border-radius: 8px; padding: 14px 20px; margin: 22px 0; font-size: 14px; color: #d0f0e8; line-height: 1.75; }
-  .tip-block strong { color: #00e5a0; }
+  .tip-block { background: #0d1e1a; border: 1px solid #0a3028; border-left: 3px solid #4ade80; border-radius: 8px; padding: 14px 20px; margin: 22px 0; font-size: 14px; color: #d0f0e8; line-height: 1.75; }
+  .tip-block strong { color: #4ade80; }
 
   .warning-block { background: #1a0e14; border: 1px solid #3a1828; border-left: 3px solid #ff4d6a; border-radius: 8px; padding: 14px 20px; margin: 22px 0; font-size: 14px; color: #f0d8e0; line-height: 1.75; }
   .warning-block strong { color: var(--danger); }
 
   .bullet-list { list-style: none; margin: 14px 0; }
   .bullet-list li { display: flex; gap: 12px; font-size: 14px; color: #d8d0cc; line-height: 1.7; margin-bottom: 12px; }
-  .bullet-list li::before { content: '→'; color: #ff6b47; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+  .bullet-list li::before { content: '→'; color: #06b6d4; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
 
   .numbered-list { list-style: none; margin: 14px 0; counter-reset: item; }
   .numbered-list li { display: flex; gap: 14px; font-size: 14px; color: #d8d0cc; line-height: 1.7; margin-bottom: 16px; counter-increment: item; }
-  .numbered-list li::before { content: counter(item); color: #38bdf8; background: #38bdf814; border: 1px solid #38bdf830; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; font-weight: 800; margin-top: 1px; }
+  .numbered-list li::before { content: counter(item); color: #4ade80; background: #4ade8014; border: 1px solid #4ade8030; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; font-weight: 800; margin-top: 1px; }
 
-  .example-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
-  .example-card-title { font-size: 10px; font-weight: 800; color: #00e5a0; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 8px; }
+  .example-card { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin: 18px 0; }
+  .example-card-title { font-size: 9px; font-weight: 800; color: var(--green); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 10px; opacity: 0.85; }
   .example-card p { font-size: 14px; color: #d8d0cc; line-height: 1.7; }
   .example-card p + p { margin-top: 10px; }
 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
   .two-col .example-card { margin: 0; }
 
-  .code-block { background: #0e0b16; border: 1px solid #2a2035; border-radius: 10px; padding: 18px 20px; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 12.5px; color: #e8d0ff; line-height: 1.8; overflow-x: auto; white-space: pre; max-width: 100%; word-break: break-all; }
+  .code-block { background: #04080a; border: 1px solid rgba(6,182,212,0.15); border-top: 1px solid rgba(6,182,212,0.3); border-radius: 10px; padding: 20px 20px; margin: 18px 0; font-family: 'Courier New', monospace; font-size: 12.5px; color: #a0f0ff; line-height: 1.85; overflow-x: auto; white-space: pre; max-width: 100%; word-break: break-all; position: relative; }
+  .code-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--teal), transparent); }
   .code-comment { color: var(--muted); }
 
-  .scenario-block { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin: 20px 0; }
-  .scenario-label { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; color: #38bdf8; text-transform: uppercase; margin-bottom: 6px; }
+  .scenario-block { background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin: 20px 0; }
+  .scenario-label { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; color: #4ade80; text-transform: uppercase; margin-bottom: 6px; }
   .scenario-title { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
   .scenario-body { font-size: 14px; color: #d8d0cc; line-height: 1.7; }
 
-  .divider { height: 1px; background: #2a2035; margin: 36px 0; }
+  .divider { height: 1px; background: #1a2e2e; margin: 36px 0; }
 
   /* module image */
   .mod-img-wrap { margin: 24px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
   .mod-img-wrap img { width: 100%; display: block; max-height: 340px; object-fit: cover; object-position: top; }
-  .mod-img-caption { padding: 8px 14px; font-size: 11px; color: var(--muted); background: var(--surface2); border-top: 1px solid #2a2035; }
+  .mod-img-caption { padding: 8px 14px; font-size: 11px; color: var(--muted); background: var(--surface2); border-top: 1px solid #1a2e2e; }
 
   /* CHECKLIST */
-  .checklist-wrap { background: #14101e; border: 1px solid #2a2035; border-radius: 12px; padding: 20px 22px; margin-top: 36px; }
-  .checklist-title { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 16px; }
-  .checklist-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
-  .checklist-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .checklist-box { width: 20px; height: 20px; border-radius: 4px; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; transition: all 0.2s; font-size: 11px; }
-  .checklist-item.done .checklist-box { background: #ff6b47; border-color: #ff6b47; color: #fff; font-weight: 800; }
-  .checklist-item.done .checklist-text { text-decoration: line-through; color: var(--muted); }
-  .checklist-text { font-size: 13.5px; color: var(--text); line-height: 1.5; }
 
   /* FOOTER */
-  .nav-footer { display: flex; gap: 12px; margin-top: 40px; padding-top: 28px; border-top: 1px solid #2a2035; align-items: center; flex-wrap: wrap; }
+  .nav-footer { display: flex; gap: 12px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border); align-items: center; flex-wrap: wrap; }
+  .page-done-wrap { margin-top: 40px; background: linear-gradient(135deg, rgba(0,229,160,0.05), rgba(0,229,160,0.02)); border: 1px solid rgba(0,229,160,0.2); border-radius: 14px; padding: 22px 24px; position: relative; overflow: hidden; }
+  .page-done-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--green), transparent); }
+  .page-done-hint { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+  .btn-mark-done { padding: 11px 28px; background: linear-gradient(135deg, #4ade80, #22c55e); color: #08120e; font-size: 14px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; box-shadow: 0 4px 16px #4ade8040; transition: all 0.15s; }
+  .btn-mark-done:hover { background: linear-gradient(135deg, #86efac, #4ade80); box-shadow: 0 6px 20px #4ade8060; transform: translateY(-1px); }
+  .btn-mark-done:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+  .page-done-badge { display: inline-flex; align-items: center; gap: 8px; background: #4ade8014; border: 1px solid #4ade8030; color: #4ade80; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px; }
   .btn { padding: 10px 22px; border-radius: 7px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; font-family: 'Inter', sans-serif; }
-  .btn-primary { background: linear-gradient(135deg, #ff6b47, #e8401a); color: #fff; font-weight: 700; box-shadow: 0 4px 16px #ff6b4740; }
-  .btn-primary:hover { background: linear-gradient(135deg, #ff8060, #ff6b47); box-shadow: 0 6px 20px #ff6b4760; transform: translateY(-1px); }
-  .btn-secondary { background: var(--surface2); color: #c8c4d4; border: 1px solid #2a2035; }
+  .btn-primary { background: linear-gradient(135deg, var(--teal), #0891b2); color: #fff; font-weight: 700; box-shadow: 0 4px 16px var(--teal-glow); }
+  .btn-primary:hover { background: linear-gradient(135deg, #22d3ee, var(--teal)); box-shadow: 0 6px 20px var(--teal-glow); transform: translateY(-1px); }
+  .btn-secondary { background: var(--surface2); color: #c8c4d4; border: 1px solid #1a2e2e; }
   .btn-secondary:hover { color: var(--text); }
-  .btn-complete { background: #00e5a014; color: #00e5a0; border: 1px solid #00e5a030; font-weight: 700; }
-  .btn-complete:hover { background: #00e5a020; }
-  .completed-badge { display: inline-flex; align-items: center; gap: 6px; background: #00e5a014; border: 1px solid #00e5a030; color: #00e5a0; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 99px; }
+  .btn-complete { background: #4ade8014; color: #4ade80; border: 1px solid #4ade8030; font-weight: 700; }
+  .btn-complete:hover { background: #4ade8020; }
+  .completed-badge { display: inline-flex; align-items: center; gap: 6px; background: #4ade8014; border: 1px solid #4ade8030; color: #4ade80; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 99px; }
 
   /* COSTS TABLE */
   /* CE hybrid table */
@@ -135,11 +135,11 @@
   .s5-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
   .s5-table thead tr th { padding: 4px 14px 8px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .s5-table thead tr th:first-child { min-width: 120px; }
-  .s5-table tbody tr td { padding: 12px 14px; font-size: 13px; color: #ccc8d8; line-height: 1.65; vertical-align: top; word-break: break-word; background: #1a1520; }
-  .s5-table tbody tr td:first-child { color: #ffffff; font-weight: 700; background: #1a1428; border-radius: 8px 0 0 8px; white-space: normal; word-break: break-word; width: 160px; border-right: 1px solid #2a2035; }
+  .s5-table tbody tr td { padding: 12px 14px; font-size: 13px; color: #ccc8d8; line-height: 1.65; vertical-align: top; word-break: break-word; background: #121e1e; }
+  .s5-table tbody tr td:first-child { color: var(--text); font-weight: 700; background: linear-gradient(135deg, var(--surface2), var(--surface)); border-radius: 8px 0 0 8px; white-space: normal; word-break: break-word; width: 160px; border-right: 1px solid var(--border); }
   .s5-table tbody tr td:last-child { border-radius: 0 8px 8px 0; }
   .s5-table tbody tr td:only-child { border-radius: 8px; }
-  .s5-table tbody tr:hover td { filter: brightness(1.1); }
+  .s5-table tbody tr:hover td { filter: brightness(1.12); }
   .s5-pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 9px; border-radius: 99px; white-space: nowrap; }
   @media (max-width: 600px) {
     .s5-table { border-spacing: 0 8px; }
@@ -151,21 +151,21 @@
 
   /* Step-card style — image 2 layout: coral label top, body below */
   .step-cards { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
-  .step-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-  .step-card-header { padding: 12px 16px 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-  .step-card-num { width: 24px; height: 24px; border-radius: 50%; background: #38bdf814; border: 1px solid #38bdf830; color: #38bdf8; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .step-card-term { font-size: 13px; font-weight: 700; color: var(--teal); line-height: 1.3; word-break: break-word; overflow-wrap: break-word; }
-  .step-card-body { padding: 12px 16px; font-size: 13px; color: #ccc8d8; line-height: 1.65; }
+  .step-card { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }  .step-card:hover { border-color: var(--teal-glow); }
+  .step-card-header { padding: 14px 16px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; background: linear-gradient(90deg, var(--teal-dim), transparent); }
+  .step-card-num { width: 26px; height: 26px; border-radius: 50%; background: var(--teal-dim); border: 1.5px solid var(--teal-glow); color: var(--teal); font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 8px var(--teal-glow); }
+  .step-card-term { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.3; word-break: break-word; overflow-wrap: break-word; }
+  .step-card-body { padding: 14px 16px; font-size: 13.5px; color: var(--muted2); line-height: 1.7; }
 
   /* Definition-card style — image 2 layout for bullet tables: label top in coral, body below */
   .def-cards { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
-  .def-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-  .def-card-label { padding: 11px 16px 9px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 700; color: var(--teal); }
+  .def-card { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }  .def-card:hover { border-color: var(--teal-glow); }
+  .def-card-label { padding: 12px 16px 10px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 700; color: var(--teal); background: linear-gradient(90deg, var(--teal-dim), transparent); }
   .def-card-body { padding: 12px 16px; font-size: 13px; color: #ccc8d8; line-height: 1.65; }
 
   /* mobile-nav-toggle removed */
-  .hamburger-btn { position: fixed; top: 14px; left: 14px; z-index: 200; width: 36px; height: 36px; background: #1a1428; border: 1px solid #3a2a50; border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; transition: background 0.15s, border-color 0.15s; outline: none; -webkit-tap-highlight-color: transparent; }
-  .hamburger-btn:hover { background: #241a38; border-color: #ff6b47; }
+  .hamburger-btn { position: fixed; top: 14px; left: 14px; z-index: 200; width: 36px; height: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; transition: all 0.2s; outline: none; -webkit-tap-highlight-color: transparent; backdrop-filter: blur(8px); }
+  .hamburger-btn:hover { background: var(--surface2); border-color: var(--teal); box-shadow: 0 0 12px var(--teal-glow); }
   .hamburger-btn:focus { outline: none; }
   .hamburger-btn:focus-visible { outline: none; }
   .hamburger-btn span { display: block; width: 16px; height: 1.5px; background: var(--text); border-radius: 2px; transition: all 0.2s ease; transform-origin: center; }
@@ -202,6 +202,14 @@
   .s5-wrap.visible .s5-table tbody tr:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.25s; }
   .s5-wrap.visible .s5-table tbody tr:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.3s; }
   .s5-wrap.visible .s5-table tbody tr:nth-child(n+7) { opacity: 1; transform: none; transition-delay: 0.35s; }
+
+  /* month-cards */
+  .month-cards { display: flex; flex-direction: column; gap: 12px; margin: 18px 0; }
+  .month-card { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+  .month-card:hover { border-color: var(--teal-glow); }
+  .month-card-header { padding: 12px 16px 10px; border-bottom: 1px solid var(--border); background: linear-gradient(90deg, var(--teal-dim), transparent); }
+  .month-card-label { display: block; font-size: 13px; font-weight: 700; color: var(--teal); }
+  .month-card-body { padding: 14px 16px; font-size: 13.5px; color: var(--muted2); line-height: 1.75; }
 </style>
 </head>
 <body>
@@ -287,7 +295,7 @@ const modules = [
       "<strong>Action execution:</strong> The AI's output triggers a concrete action. An email gets sent. A database row gets written. A Slack message fires. A calendar event gets created. A PDF gets generated. This step is purely deterministic — it does exactly what it's told."
     ]},
     { type:"example-card", title:"Real Example — Walk Through the 4 Parts", body:"A dental clinic gets 40 enquiry emails a week. Currently, a receptionist reads each one and writes a reply. <br><br><strong>Trigger:</strong> New email arrives in clinic inbox.<br><strong>Input processing:</strong> Extract sender name, email subject, and body text. Check if sender is already in Supabase patient database.<br><strong>AI step:</strong> Claude reads the enquiry, determines the type (new patient, appointment request, billing question), and writes an appropriate personalised reply using clinic information from the system prompt.<br><strong>Action:</strong> Reply sent automatically. Log entry written to Supabase with timestamp, enquiry type, and reply text." },
-    { type:"svg-img", svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" style="width:100%;height:auto;display:block;background:#09080a">\n  <defs>\n    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">\n      <path d="M0,0 L0,6 L8,3 z" fill="#e8735a" opacity="0.6"/>\n    </marker>\n  </defs>\n  <!-- boxes -->\n  <rect x="20" y="80" width="130" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.4" stroke-width="1.5"/>\n  <text x="85" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">TRIGGER</text>\n  <text x="85" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Form submitted</text>\n  <line x1="150" y1="108" x2="188" y2="108" stroke="#e8735a" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arr)"/>\n\n  <rect x="190" y="80" width="148" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.4" stroke-width="1.5"/>\n  <text x="264" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">INPUT</text>\n  <text x="264" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Extract + structure</text>\n  <line x1="338" y1="108" x2="376" y2="108" stroke="#e8735a" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arr)"/>\n\n  <rect x="378" y="80" width="148" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.9" stroke-width="1.5"/>\n  <text x="452" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">AI STEP</text>\n  <text x="452" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Claude writes reply</text>\n  <line x1="526" y1="108" x2="564" y2="108" stroke="#e8735a" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arr)"/>\n\n  <rect x="566" y="80" width="130" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.4" stroke-width="1.5"/>\n  <text x="631" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">ACTION</text>\n  <text x="631" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Email sent + logged</text>\n\n  <!-- labels -->\n  <text x="360" y="185" text-anchor="middle" fill="#a09890" font-family="Inter,sans-serif" font-size="11">The 4-part anatomy — every workflow you build follows this exact sequence</text>\n</svg>', caption:"The 4-part anatomy — every workflow follows this exact sequence" },
+    { type:"svg-img", svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" style="width:100%;height:auto;display:block;background:#060b0b">\n  <defs>\n    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">\n      <path d="M0,0 L0,6 L8,3 z" fill="#e8735a" opacity="0.6"/>\n    </marker>\n  </defs>\n  <!-- boxes -->\n  <rect x="20" y="80" width="130" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.4" stroke-width="1.5"/>\n  <text x="85" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">TRIGGER</text>\n  <text x="85" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Form submitted</text>\n  <line x1="150" y1="108" x2="188" y2="108" stroke="#e8735a" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arr)"/>\n\n  <rect x="190" y="80" width="148" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.4" stroke-width="1.5"/>\n  <text x="264" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">INPUT</text>\n  <text x="264" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Extract + structure</text>\n  <line x1="338" y1="108" x2="376" y2="108" stroke="#e8735a" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arr)"/>\n\n  <rect x="378" y="80" width="148" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.9" stroke-width="1.5"/>\n  <text x="452" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">AI STEP</text>\n  <text x="452" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Claude writes reply</text>\n  <line x1="526" y1="108" x2="564" y2="108" stroke="#e8735a" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arr)"/>\n\n  <rect x="566" y="80" width="130" height="56" rx="8" fill="#1a1412" stroke="#e8735a" stroke-opacity="0.4" stroke-width="1.5"/>\n  <text x="631" y="104" text-anchor="middle" fill="#e8735a" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1">ACTION</text>\n  <text x="631" y="120" text-anchor="middle" fill="#e8e0dc" font-family="Inter,sans-serif" font-size="11">Email sent + logged</text>\n\n  <!-- labels -->\n  <text x="360" y="185" text-anchor="middle" fill="#4a7070" font-family="Inter,sans-serif" font-size="11">The 4-part anatomy — every workflow you build follows this exact sequence</text>\n</svg>', caption:"The 4-part anatomy — every workflow follows this exact sequence" },
     { type:"heading", text:"The 7 Most Common Workflow Categories" },
     { type:"prose", content:`This is what businesses actually hand over money to fix. When a client describes their problem, it'll almost always map to one of these.` },
     { type:"gen-table", headers:["Category","What it does","Typical trigger"], rows:[
@@ -451,7 +459,7 @@ gets back to you shortly to help with this."` },
       "<strong>Credentials:</strong> All API keys and auth tokens are stored in n8n's credential store. You set them once, reference them in any node.",
       "<strong>Webhook trigger:</strong> The most versatile trigger. Any external service that can send an HTTP request can start your workflow. Tally forms, Stripe payments, GitHub pushes — all use this."
     ]},
-    { type:"svg-img", svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" style="width:100%;height:auto;display:block;background:#09080a">\n  <!-- canvas bg -->\n  <rect x="0" y="0" width="720" height="240" fill="#0e0a09"/>\n  <!-- grid dots -->\n  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">\n    <circle cx="12" cy="12" r="1" fill="#241c1a"/>\n  </pattern>\n  <rect width="720" height="240" fill="url(#dots)"/>\n  <!-- nodes -->\n  <rect x="40" y="90" width="120" height="52" rx="8" fill="#1a1412" stroke="#e8735a" stroke-width="1.5"/>\n  <rect x="40" y="90" width="120" height="16" rx="8" fill="#e8735a" opacity="0.15"/>\n  <text x="100" y="103" text-anchor="middle" fill="#e8735a" font-family="monospace" font-size="9" font-weight="700">WEBHOOK</text>\n  <text x="100" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Tally Form</text>\n  <text x="100" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">POST /webhook/xyz</text>\n  <!-- connector -->\n  <path d="M160,116 C190,116 200,116 220,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <defs>\n    <marker id="arr2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">\n      <path d="M0,0 L0,6 L7,3 z" fill="#e8735a" opacity="0.5"/>\n    </marker>\n  </defs>\n  <rect x="220" y="90" width="140" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="290" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">HTTP REQUEST</text>\n  <text x="290" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Claude API</text>\n  <text x="290" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">api.anthropic.com</text>\n  <path d="M360,116 C390,116 400,116 420,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <rect x="420" y="90" width="120" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="480" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">CODE</text>\n  <text x="480" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Parse response</text>\n  <text x="480" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">extract .content[0]</text>\n  <path d="M540,116 C570,116 580,116 600,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <rect x="600" y="90" width="100" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="650" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">SEND EMAIL</text>\n  <text x="650" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Resend API</text>\n  <text x="650" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">to: {{email}}</text>\n  <text x="360" y="200" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="10">n8n canvas — your first workflow: Webhook → Claude → Parse → Send Email</text>\n</svg>', caption:"The n8n canvas — each box is a node. Connect them left to right and the workflow runs automatically." },
+    { type:"svg-img", svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" style="width:100%;height:auto;display:block;background:#060b0b">\n  <!-- canvas bg -->\n  <rect x="0" y="0" width="720" height="240" fill="#040808"/>\n  <!-- grid dots -->\n  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">\n    <circle cx="12" cy="12" r="1" fill="#241c1a"/>\n  </pattern>\n  <rect width="720" height="240" fill="url(#dots)"/>\n  <!-- nodes -->\n  <rect x="40" y="90" width="120" height="52" rx="8" fill="#1a1412" stroke="#e8735a" stroke-width="1.5"/>\n  <rect x="40" y="90" width="120" height="16" rx="8" fill="#e8735a" opacity="0.15"/>\n  <text x="100" y="103" text-anchor="middle" fill="#e8735a" font-family="monospace" font-size="9" font-weight="700">WEBHOOK</text>\n  <text x="100" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Tally Form</text>\n  <text x="100" y="134" text-anchor="middle" fill="#4a7070" font-family="monospace" font-size="9">POST /webhook/xyz</text>\n  <!-- connector -->\n  <path d="M160,116 C190,116 200,116 220,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <defs>\n    <marker id="arr2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">\n      <path d="M0,0 L0,6 L7,3 z" fill="#e8735a" opacity="0.5"/>\n    </marker>\n  </defs>\n  <rect x="220" y="90" width="140" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="290" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">HTTP REQUEST</text>\n  <text x="290" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Claude API</text>\n  <text x="290" y="134" text-anchor="middle" fill="#4a7070" font-family="monospace" font-size="9">api.anthropic.com</text>\n  <path d="M360,116 C390,116 400,116 420,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <rect x="420" y="90" width="120" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="480" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">CODE</text>\n  <text x="480" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Parse response</text>\n  <text x="480" y="134" text-anchor="middle" fill="#4a7070" font-family="monospace" font-size="9">extract .content[0]</text>\n  <path d="M540,116 C570,116 580,116 600,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <rect x="600" y="90" width="100" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="650" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">SEND EMAIL</text>\n  <text x="650" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Resend API</text>\n  <text x="650" y="134" text-anchor="middle" fill="#4a7070" font-family="monospace" font-size="9">to: {{email}}</text>\n  <text x="360" y="200" text-anchor="middle" fill="#4a7070" font-family="monospace" font-size="10">n8n canvas — your first workflow: Webhook → Claude → Parse → Send Email</text>\n</svg>', caption:"The n8n canvas — each box is a node. Connect them left to right and the workflow runs automatically." },
     { type:"tip-block", content:`<strong>Where to start in n8n:</strong> Three nodes. Webhook trigger → HTTP Request to Claude API → Send Email. That's it. Get comfortable with how data passes between nodes before you add anything else.` },
     { type:"heading", text:"The Claude API — Your AI Brain" },
     { type:"prose", content:`The API is simple on the surface: system prompt sets the rules, user message is the input, Claude returns a response. But how you structure that call makes a significant difference to output quality — so it's worth going deep here.` },
@@ -484,7 +492,7 @@ gets back to you shortly to help with this."` },
       "<strong>Real-time subscriptions:</strong> Supabase can fire a webhook when a row is inserted or updated. Use this as a workflow trigger — e.g., when a new contact is added, start an onboarding sequence.",
       "<strong>Edge Functions:</strong> Serverless functions you can deploy to Supabase. Useful for more complex logic that n8n isn't ideal for."
     ]},
-    { type:"svg-img", svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" style="width:100%;height:auto;display:block;background:#09080a">\n  <!-- header row -->\n  <rect x="20" y="20" width="680" height="32" rx="4" fill="#1a1412"/>\n  <text x="40" y="41" fill="#a09890" font-family="monospace" font-size="11" font-weight="700">id</text>\n  <text x="100" y="41" fill="#a09890" font-family="monospace" font-size="11" font-weight="700">name</text>\n  <text x="220" y="41" fill="#a09890" font-family="monospace" font-size="11" font-weight="700">email</text>\n  <text x="390" y="41" fill="#a09890" font-family="monospace" font-size="11" font-weight="700">enquiry_type</text>\n  <text x="530" y="41" fill="#a09890" font-family="monospace" font-size="11" font-weight="700">status</text>\n  <text x="620" y="41" fill="#a09890" font-family="monospace" font-size="11" font-weight="700">created_at</text>\n  <!-- rows -->\n  <rect x="20" y="56" width="680" height="28" rx="0" fill="#130f0e"/>\n  <text x="40" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">001</text>\n  <text x="100" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">Sarah M.</text>\n  <text x="220" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">sarah@email.com</text>\n  <text x="390" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">BOOKING</text>\n  <rect x="527" y="62" width="44" height="14" rx="3" fill="#e8735a22"/>\n  <text x="549" y="73" text-anchor="middle" fill="#e8735a" font-family="monospace" font-size="9" font-weight="700">sent</text>\n  <text x="620" y="74" fill="#a09890" font-family="monospace" font-size="10">2 mins ago</text>\n  <rect x="20" y="84" width="680" height="28" fill="#1a1412"/>\n  <text x="40" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">002</text>\n  <text x="100" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">James T.</text>\n  <text x="220" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">james@co.co.uk</text>\n  <text x="390" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">GENERAL</text>\n  <rect x="527" y="90" width="44" height="14" rx="3" fill="#e8735a22"/>\n  <text x="549" y="101" text-anchor="middle" fill="#e8735a" font-family="monospace" font-size="9" font-weight="700">sent</text>\n  <text x="620" y="102" fill="#a09890" font-family="monospace" font-size="10">14 mins ago</text>\n  <rect x="20" y="112" width="680" height="28" fill="#130f0e"/>\n  <text x="40" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">003</text>\n  <text x="100" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">Priya K.</text>\n  <text x="220" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">priya@health.io</text>\n  <text x="390" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">BILLING</text>\n  <rect x="523" y="118" width="52" height="14" rx="3" fill="#22d4a015"/>\n  <text x="549" y="129" text-anchor="middle" fill="#22d4a0" font-family="monospace" font-size="9" font-weight="700">pending</text>\n  <text x="620" y="130" fill="#a09890" font-family="monospace" font-size="10">1 hr ago</text>\n  <text x="360" y="178" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="10">Supabase log — every enquiry processed, classified, and timestamped automatically</text>\n</svg>', caption:"Supabase table — every workflow run logged as a row. Queryable, filterable, exportable." },
+    { type:"svg-img", svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" style="width:100%;height:auto;display:block;background:#060b0b">\n  <!-- header row -->\n  <rect x="20" y="20" width="680" height="32" rx="4" fill="#1a1412"/>\n  <text x="40" y="41" fill="#4a7070" font-family="monospace" font-size="11" font-weight="700">id</text>\n  <text x="100" y="41" fill="#4a7070" font-family="monospace" font-size="11" font-weight="700">name</text>\n  <text x="220" y="41" fill="#4a7070" font-family="monospace" font-size="11" font-weight="700">email</text>\n  <text x="390" y="41" fill="#4a7070" font-family="monospace" font-size="11" font-weight="700">enquiry_type</text>\n  <text x="530" y="41" fill="#4a7070" font-family="monospace" font-size="11" font-weight="700">status</text>\n  <text x="620" y="41" fill="#4a7070" font-family="monospace" font-size="11" font-weight="700">created_at</text>\n  <!-- rows -->\n  <rect x="20" y="56" width="680" height="28" rx="0" fill="#130f0e"/>\n  <text x="40" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">001</text>\n  <text x="100" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">Sarah M.</text>\n  <text x="220" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">sarah@email.com</text>\n  <text x="390" y="74" fill="#e8e0dc" font-family="monospace" font-size="11">BOOKING</text>\n  <rect x="527" y="62" width="44" height="14" rx="3" fill="#e8735a22"/>\n  <text x="549" y="73" text-anchor="middle" fill="#e8735a" font-family="monospace" font-size="9" font-weight="700">sent</text>\n  <text x="620" y="74" fill="#4a7070" font-family="monospace" font-size="10">2 mins ago</text>\n  <rect x="20" y="84" width="680" height="28" fill="#1a1412"/>\n  <text x="40" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">002</text>\n  <text x="100" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">James T.</text>\n  <text x="220" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">james@co.co.uk</text>\n  <text x="390" y="102" fill="#e8e0dc" font-family="monospace" font-size="11">GENERAL</text>\n  <rect x="527" y="90" width="44" height="14" rx="3" fill="#e8735a22"/>\n  <text x="549" y="101" text-anchor="middle" fill="#e8735a" font-family="monospace" font-size="9" font-weight="700">sent</text>\n  <text x="620" y="102" fill="#4a7070" font-family="monospace" font-size="10">14 mins ago</text>\n  <rect x="20" y="112" width="680" height="28" fill="#130f0e"/>\n  <text x="40" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">003</text>\n  <text x="100" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">Priya K.</text>\n  <text x="220" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">priya@health.io</text>\n  <text x="390" y="130" fill="#e8e0dc" font-family="monospace" font-size="11">BILLING</text>\n  <rect x="523" y="118" width="52" height="14" rx="3" fill="#22d4a015"/>\n  <text x="549" y="129" text-anchor="middle" fill="#22d4a0" font-family="monospace" font-size="9" font-weight="700">pending</text>\n  <text x="620" y="130" fill="#4a7070" font-family="monospace" font-size="10">1 hr ago</text>\n  <text x="360" y="178" text-anchor="middle" fill="#4a7070" font-family="monospace" font-size="10">Supabase log — every enquiry processed, classified, and timestamped automatically</text>\n</svg>', caption:"Supabase table — every workflow run logged as a row. Queryable, filterable, exportable." },
     { type:"heading", text:"Resend — Email Delivery" },
     { type:"prose", content:`Resend is just the best option for this. Clean API, solid deliverability, free tier that covers everything you need for your first few clients.` },
     { type:"code", content:`// Sending an email via Resend API (in n8n HTTP Request node)
@@ -1030,9 +1038,11 @@ touch within 24 hours to help."` },
   subtitle:"How to go from first client to consistent income — and what to do when you're there.",
   sections:[
     { type:"heading", text:"The First 90 Days" },
-    { type:"prose", content:`Month 1: get one paying client. Not the right client. Not the ideal client. Just a real one. You'll learn more from scoping, building, and delivering one actual project than you will from three months of preparation.` },
-    { type:"prose", content:`Month 2: second client and a case study from the first. A case study doesn't need to be elaborate — two paragraphs covering the problem, what you built, and a concrete result. 'Response time went from 2 days to 8 seconds. Owner reckons they're recapturing 3 leads a week that used to go cold.' Done.` },
-    { type:"prose", content:`Month 3: third client and a repeatable process. By this point you've built the same core thing three times in different clothes. You have templates, a scoping doc, a test checklist. New projects stop feeling like starting from scratch.` },
+    { type:"month-cards", items:[
+      { month:"Month 1", goal:"First paying client", body:"Get one paying client. Not the right client. Not the ideal client. Just a real one. You'll learn more from scoping, building, and delivering one actual project than you will from three months of preparation." },
+      { month:"Month 2", goal:"Case study + second client", body:"Second client and a case study from the first. A case study doesn't need to be elaborate — two paragraphs covering the problem, what you built, and a concrete result. 'Response time went from 2 days to 8 seconds. Owner reckons they're recapturing 3 leads a week that used to go cold.' Done." },
+      { month:"Month 3", goal:"Repeatable process", body:"Third client and a repeatable process. By this point you've built the same core thing three times in different clothes. You have templates, a scoping doc, a test checklist. New projects stop feeling like starting from scratch." },
+    ]},
     { type:"heading", text:"Getting Referrals" },
     { type:"prose", content:`Referrals close at a completely different rate to cold outreach. The prospect already trusts you before you've said a word — because someone they trust said you're worth talking to.` },
     { type:"bullets", items:[
@@ -1315,10 +1325,9 @@ MESSAGE TO CLASSIFY:
 // ─── STATE ────────────────────────────────────────────────────────────────────
 let currentModule = 0;
 const completedModules = new Set();
-const checklistState = {};
 
 function initState() {
-  modules.forEach((m, i) => { checklistState[i] = new Array(m.checklist.length).fill(false); });
+  // checklistState removed — using simple completedModules Set
 }
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
@@ -1487,6 +1496,7 @@ function renderSection(s) {
       return `<div class="s5-wrap"><table class="s5-table"><thead><tr>${thead}</tr></thead><tbody>${tbody}</tbody></table></div>`;
     }
     case 'two-col': return `<div class="two-col">${s.items.map(i=>`<div class="example-card"><div class="example-card-title">${i.title}</div><p>${i.body}</p></div>`).join('')}</div>`;
+    case 'month-cards': return `<div class="month-cards">${s.items.map(m=>`<div class="month-card"><div class="month-card-header"><span class="month-card-label">${m.month}: ${m.goal}</span></div><div class="month-card-body">${m.body}</div></div>`).join('')}</div>`;
     default: return '';
   }
 }
@@ -1497,20 +1507,15 @@ function showModule(idx) {
   const isCompleted = completedModules.has(idx);
   const isLast = idx === modules.length - 1;
 
-  const checklistHTML = m.checklist.map((text, ci) => {
-    const done = checklistState[idx][ci];
-    return `<div class="checklist-item ${done?'done':''}" data-check="${idx}-${ci}" onclick="toggleCheck(${idx},${ci})">
-      <div class="checklist-box">${done?'✓':''}</div>
-      <div class="checklist-text" style="${done?'text-decoration:line-through;color:var(--muted)':''}">${text}</div>
-    </div>`;
-  }).join('');
-
   const prevBtn = idx > 0 ? `<button class="btn btn-secondary" onclick="showModule(${idx-1})">← Back</button>` : '';
-  const ready = allChecked(idx);
-  const nextBtn = !isLast ? `<button class="btn btn-primary" id="next-btn-${idx}" onclick="showModule(${idx+1})" ${ready?'':'disabled'} style="opacity:${ready?'1':'0.35'};cursor:${ready?'pointer':'not-allowed'}" title="${ready?'':'Tick all boxes before continuing'}">Next →</button>` : '';
-  const completeBtn = isCompleted
-    ? `<span class="completed-badge">✓ Completed</span>`
-    : `<button class="btn btn-complete" onclick="markComplete(${idx})">✓ Mark Complete</button>`;
+  const nextBtn = !isLast ? `<button class="btn btn-primary" id="next-btn-${idx}" onclick="showModule(${idx+1})" ${isCompleted?'':'disabled'} style="opacity:${isCompleted?'1':'0.35'};cursor:${isCompleted?'pointer':'not-allowed'}">Next →</button>` : '';
+
+  const pageDoneSection = isCompleted
+    ? `<div class="page-done-wrap"><span class="page-done-badge">✓ Page marked as done</span></div>`
+    : `<div class="page-done-wrap">
+        <div class="page-done-hint">Read through the module, then mark it as done to unlock the next page.</div>
+        <button class="btn-mark-done" onclick="markComplete(${idx})">Mark page as done</button>
+      </div>`;
 
   document.getElementById('main').innerHTML = `
     <div class="module-meta">
@@ -1521,11 +1526,8 @@ function showModule(idx) {
     <h1 class="module-title">${m.title}</h1>
     <p class="module-subtitle">${m.subtitle}</p>
     ${m.sections.map(renderSection).join('\n')}
-    <div class="checklist-wrap">
-      <div class="checklist-title">Before you move on</div>
-      ${checklistHTML}
-    </div>
-    <div class="nav-footer">${prevBtn}${nextBtn}${completeBtn}</div>
+    ${pageDoneSection}
+    <div class="nav-footer">${prevBtn}${nextBtn}</div>
   `;
 
   updateNav();
@@ -1535,48 +1537,23 @@ function showModule(idx) {
   requestAnimationFrame(() => initScrollAnimations());
 }
 
-function toggleCheck(mi, ci) {
-  checklistState[mi][ci] = !checklistState[mi][ci];
-  // Update just the clicked item without re-rendering the whole page
-  const item = document.querySelector(`[data-check="${mi}-${ci}"]`);
-  if (item) {
-    const done = checklistState[mi][ci];
-    item.classList.toggle('done', done);
-    item.querySelector('.checklist-box').textContent = done ? '✓' : '';
-    item.querySelector('.checklist-text').style.textDecoration = done ? 'line-through' : '';
-    item.querySelector('.checklist-text').style.color = done ? 'var(--muted)' : '';
-  }
-  // Update next button state
-  updateNextBtn(mi);
-}
 
-function allChecked(idx) {
-  return checklistState[idx] && checklistState[idx].every(v => v);
-}
-
-function updateNextBtn(idx) {
-  const btn = document.getElementById('next-btn-' + idx);
-  if (!btn) return;
-  const isLast = idx === modules.length - 1;
-  if (isLast) return;
-  const ready = allChecked(idx);
-  btn.disabled = !ready;
-  btn.style.opacity = ready ? '1' : '0.35';
-  btn.style.cursor = ready ? 'pointer' : 'not-allowed';
-  btn.title = ready ? '' : 'Tick all boxes before continuing';
-}
 
 function markComplete(idx) {
   completedModules.add(idx);
   updateProgress();
   updateNav();
-  // Update just the complete button in place — no full re-render, no scroll
-  const btn = document.querySelector('.btn-complete');
-  if (btn) {
-    const span = document.createElement('span');
-    span.className = 'completed-badge';
-    span.textContent = '✓ Completed';
-    btn.replaceWith(span);
+  // Replace the page-done section in place — no scroll
+  const wrap = document.querySelector('.page-done-wrap');
+  if (wrap) {
+    wrap.innerHTML = '<span class="page-done-badge">✓ Page marked as done</span>';
+  }
+  // Unlock the next button in place
+  const nextBtn = document.getElementById('next-btn-' + idx);
+  if (nextBtn) {
+    nextBtn.disabled = false;
+    nextBtn.style.opacity = '1';
+    nextBtn.style.cursor = 'pointer';
   }
 }
 
