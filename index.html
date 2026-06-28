@@ -1661,7 +1661,7 @@ function markComplete(idx) {
 }
 
 function showSummary() {
-  const total = modules.length;
+  const total = modules.length - 1; // exclude summary page
   const done = completedModules.size;
   const pct = Math.round((done / total) * 100);
   const circumference = 283;
