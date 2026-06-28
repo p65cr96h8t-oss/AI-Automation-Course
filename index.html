@@ -28,13 +28,12 @@
     --danger: #ff4d6a;
   }
   html, body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; font-size: 15px; line-height: 1.6; }
-  body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ff6b47, #c084fc, #38bdf8, #00e5a0); z-index: 1000; }
-  .shell { display: flex; min-height: 100vh; overflow-x: hidden; width: 100%; }
-  .shell.sidebar-collapsed .sidebar { width: 0; min-width: 0; overflow: hidden; border-right: none; }
+  .shell { display: flex; min-height: 100vh; width: 100%; }
+  .shell.sidebar-collapsed .sidebar { width: 0; min-width: 0; overflow-x: hidden; overflow-y: hidden; border-right: none; }
   .shell.sidebar-collapsed .main { max-width: 100%; }
 
   /* SIDEBAR */
-  .sidebar { width: 290px; flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; overflow-y: auto; transition: width 0.25s ease, border 0.25s ease; }
+  .sidebar { width: 290px; flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; transition: width 0.25s ease, border 0.25s ease; }
   .sidebar-header { padding: 58px 20px 14px; border-bottom: 1px solid var(--border); }
   .course-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; color: var(--teal); text-transform: uppercase; margin-bottom: 5px; }
   .course-title { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; }
@@ -53,7 +52,7 @@
   .nav-item.active .nav-label { color: #ffffff; }
 
   /* MAIN */
-  .main { flex: 1; padding: 52px 48px 52px 60px; max-width: 800px; min-width: 0; overflow-x: hidden; }
+  .main { flex: 1; padding: 52px 48px 52px 60px; max-width: 800px; min-width: 0; overflow-x: hidden; overflow-wrap: break-word; word-break: break-word; }
   .module-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
   .module-badge { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #ff6b47; background: #ff6b4714; border: 1px solid #ff6b4730; padding: 3px 12px; border-radius: 99px; }
   .read-time { font-size: 11px; color: #a09890; }
@@ -137,7 +136,7 @@
   .s5-table thead tr th { padding: 4px 14px 8px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .s5-table thead tr th:first-child { min-width: 120px; }
   .s5-table tbody tr td { padding: 12px 14px; font-size: 13px; color: #ccc8d8; line-height: 1.65; vertical-align: top; word-break: break-word; background: #1a1520; }
-  .s5-table tbody tr td:first-child { color: #ffffff; font-weight: 700; background: #1a1428; border-radius: 8px 0 0 8px; white-space: nowrap; min-width: 120px; border-right: 1px solid #2a2035; }
+  .s5-table tbody tr td:first-child { color: #ffffff; font-weight: 700; background: #1a1428; border-radius: 8px 0 0 8px; white-space: normal; word-break: break-word; min-width: 100px; max-width: 160px; border-right: 1px solid #2a2035; }
   .s5-table tbody tr td:last-child { border-radius: 0 8px 8px 0; }
   .s5-table tbody tr td:only-child { border-radius: 8px; }
   .s5-table tbody tr:hover td { filter: brightness(1.1); }
@@ -149,6 +148,20 @@
     .s5-table tbody tr td:first-child { border-radius: 8px 8px 0 0 !important; border-right: none; border-bottom: 1px solid var(--border); color: var(--teal); font-size: 12px; }
     .s5-table tbody tr td:last-child { border-radius: 0 0 8px 8px !important; }
   }
+
+  /* Step-card style — image 2 layout: coral label top, body below */
+  .step-cards { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
+  .step-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .step-card-header { padding: 12px 16px 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .step-card-num { width: 24px; height: 24px; border-radius: 50%; background: #38bdf814; border: 1px solid #38bdf830; color: #38bdf8; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-card-term { font-size: 13px; font-weight: 700; color: var(--teal); line-height: 1.3; word-break: break-word; overflow-wrap: break-word; }
+  .step-card-body { padding: 12px 16px; font-size: 13px; color: #ccc8d8; line-height: 1.65; }
+
+  /* Definition-card style — image 2 layout for bullet tables: label top in coral, body below */
+  .def-cards { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
+  .def-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .def-card-label { padding: 11px 16px 9px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 700; color: var(--teal); }
+  .def-card-body { padding: 12px 16px; font-size: 13px; color: #ccc8d8; line-height: 1.65; }
 
   /* mobile-nav-toggle removed */
   .hamburger-btn { position: fixed; top: 14px; left: 14px; z-index: 200; width: 36px; height: 36px; background: #1a1428; border: 1px solid #3a2a50; border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; transition: background 0.15s, border-color 0.15s; outline: none; -webkit-tap-highlight-color: transparent; }
@@ -162,19 +175,39 @@
 
   @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
   @media (max-width: 768px) {
-    .sidebar { position: fixed; left: -290px; z-index: 50; transition: left 0.3s ease, width 0.25s ease; height: 100%; width: 290px; }
+    .sidebar { position: fixed; left: -290px; z-index: 50; transition: left 0.3s ease; height: 100%; width: 290px; overflow-y: scroll; overflow-x: hidden; -webkit-overflow-scrolling: touch; touch-action: pan-y; overscroll-behavior: contain; }
     .sidebar.open { left: 0; }
     .shell.sidebar-collapsed .sidebar { width: 290px; left: -290px; }
     .shell.sidebar-collapsed .sidebar.open { left: 0; }
     .main { padding: 56px 20px 28px; width: 100%; max-width: 100%; }
     .module-title { font-size: 22px; }
     .two-col { grid-template-columns: 1fr; }
+    .sidebar-overlay { display: block; }
   }
+  .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 49; backdrop-filter: blur(2px); }
+
+  /* ── SCROLL ANIMATIONS ─── */
+  .anim-fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
+  .anim-fade-in { opacity: 0; transition: opacity 0.5s ease; }
+  .anim-fade-in.visible { opacity: 1; }
+  .anim-slide-left { opacity: 0; transform: translateX(-18px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .anim-slide-left.visible { opacity: 1; transform: translateX(0); }
+  /* Stagger delays for table rows */
+  .s5-wrap .s5-table tbody tr { opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; }
+  .s5-wrap.visible .s5-table tbody tr:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+  .s5-wrap.visible .s5-table tbody tr:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
+  .s5-wrap.visible .s5-table tbody tr:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.15s; }
+  .s5-wrap.visible .s5-table tbody tr:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.2s; }
+  .s5-wrap.visible .s5-table tbody tr:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.25s; }
+  .s5-wrap.visible .s5-table tbody tr:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.3s; }
+  .s5-wrap.visible .s5-table tbody tr:nth-child(n+7) { opacity: 1; transform: none; transition-delay: 0.35s; }
 </style>
 </head>
 <body>
 <div class="shell">
-  <aside class="sidebar" id="sidebar">
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="course-tag">Ethan's Course</div>
       <div class="course-title">Build & Sell AI Automations</div>
@@ -194,7 +227,8 @@ const NAV_STRUCTURE = [
   { label: "Start Here", modules: [0] },
   { label: "Foundations", modules: [1,2,3,4,5] },
   { label: "Building", modules: [6,7] },
-  { label: "Selling", modules: [8,9,10] }
+  { label: "Selling", modules: [8,9,10] },
+  { label: "Advanced", modules: [11,12,13] }
 ];
 
 const modules = [
@@ -265,10 +299,33 @@ const modules = [
       ["Content generation","Drafts reports, emails, product descriptions from structured inputs. Human reviews.","Manual / schedule"],
       ["Support triage","Classifies tickets by urgency, drafts replies, escalates to the right person.","New support ticket"],
     ]},
+    { type:"heading", text:"How AI Workflows Make Money" },
+    { type:"prose", content:`Understanding the value chain is critical before you talk to a single client. There are three ways workflows generate measurable ROI — and you'll use all three as sales arguments.` },
+    { type:"bullets", items:[
+      "<strong>Time saved:</strong> A task that takes a human 10 minutes, done 50 times a week, is 500 minutes of staff time. At £20/hr that's £167/week — £8,700/year. Automation handles it in seconds.",
+      "<strong>Revenue recovered:</strong> Slow follow-up loses leads. A gym that gets 30 enquiries a week and converts 20% manually might convert 35% with instant automated follow-up. On £500 memberships, that's £750/week in recovered revenue.",
+      "<strong>Error reduction:</strong> Human data entry has a 1-4% error rate. AI processing of structured inputs, properly tested, approaches 0%. For invoicing, compliance, or record-keeping, this has real financial value.",
+    ]},
+    { type:"heading", text:"The 3 Types of AI Workflow" },
+    { type:"prose", content:`Not all workflows are the same. Before you scope anything for a client, identify which type you're building — it determines the architecture, the testing approach, and the risk profile.` },
+    { type:"bullets", items:[
+      "<strong>Reactive workflows:</strong> Triggered by an external event. Someone submits a form, sends an email, or makes a payment. The workflow fires, processes, and responds. Most client projects start here. Predictable, testable, high value.",
+      "<strong>Scheduled workflows:</strong> Run on a timer. Every Monday at 9am, pull last week's data, generate a report, send it to the management team. No human involvement. Low risk, high perceived value.",
+      "<strong>Agentic workflows:</strong> The AI actively decides what to do next based on its outputs. It might search the web, check a database, call an API, and loop until it's satisfied. More complex, harder to debug, but capable of genuinely impressive results. Build reactive workflows first.",
+    ]},
     { type:"heading", text:"What AI Workflows Cannot Do (Yet)" },
     { type:"prose", content:`Know where the edges are before you promise something you can't deliver. This is what separates people who keep clients from people who get refund requests.` },
-    { type:"warning-block", content:`<strong>Don't promise any of this until you've actually built and tested it:</strong> Real-time voice (technically possible, genuinely complicated), visual interpretation of complex image layouts, anything requiring actual strategic judgment, and anything where a mistake has serious consequences — medical, legal, financial. Human in the loop for high-stakes decisions. Always.` },
-    { type:"tip-block", content:`<strong>The test for whether AI is right for a task:</strong> Could a smart, diligent intern do this job if you gave them a good checklist and enough time? If yes, AI can probably do it. If it requires years of expertise, real-world intuition, or physical presence, it can't.` },
+    { type:"warning-block", content:`<strong>Don't promise any of this until you've built and tested it:</strong> Real-time voice (technically possible, genuinely complicated), visual interpretation of images with complex layouts, anything requiring genuine strategic judgment, tasks where being wrong has serious consequences (medical, legal, financial). Always put a human in the loop for high-stakes decisions.` },
+    { type:"tip-block", content:`<strong>The intern test:</strong> Could a smart, diligent intern do this job if you gave them a detailed checklist and enough time? If yes, AI can probably handle it. If it requires years of expertise, real-world intuition, or physical presence — it can't.` },
+    { type:"heading", text:"Why Workflows Fail (and How to Avoid It)" },
+    { type:"prose", content:`Most failed AI projects share the same root causes. Understanding them upfront saves you from repeating them.` },
+    { type:"bullets", items:[
+      "<strong>Vague directives:</strong> The most common cause of poor output. 'Be helpful' is not a directive. 'You are a patient coordinator at a physiotherapy clinic. Your only job is to classify incoming enquiries into one of four categories and respond accordingly' — that's a directive.",
+      "<strong>No input validation:</strong> Real users send garbage. Empty forms, half-finished thoughts, messages in the wrong language, forwarded email chains with 40 lines of quoted text. If you don't clean the input before it hits Claude, unpredictable outputs follow.",
+      "<strong>Testing only the happy path:</strong> Works great in your demo. Falls apart the first time a real user does something unexpected. Build a proper adversarial test set.",
+      "<strong>No fallback handling:</strong> Every AI step needs a 'what if this goes wrong' path. What if Claude returns malformed JSON? What if the API is down? What if the email fails to send? Map it out before you go live.",
+      "<strong>Changing too much at once:</strong> When a live workflow breaks, you need to know what caused it. If you updated the prompt, the model, and the email template at the same time, you have no idea which change broke it. Change one thing, test, then change the next.",
+    ]},
   ],
   checklist:[
     "I can explain the difference between automation and AI workflows in under 30 seconds",
@@ -288,7 +345,7 @@ const modules = [
     { type:"prose", content:`The cause is almost always the same: <strong>one bloated prompt trying to do too many things at once, with no fallbacks and no separation between the AI's reasoning and the code executing the result.</strong> When it gets confused — and it will — you get either garbage output or a silent failure.` },
     { type:"callout", content:`<strong>The thing to internalise:</strong> AI reasons well. It's unpredictable without constraints. Your job is to give it precise instructions, hard limits, and let code handle everything that doesn't need thinking.` },
     { type:"heading", text:"The DOE Framework" },
-    { type:"prose", content:`DOE is the mental model that fixes this. Directives, Orchestration, Execution — three layers, each with a specific job. Nick Saraev coined the framing but the underlying principle shows up in every well-built system.` },
+    { type:"prose", content:`DOE is the mental model that fixes this. Directives, Orchestration, Execution — three layers, each with a specific job. The underlying principle shows up in every well-built AI system.` },
     { type:"scenario-block", label:"Layer 1", title:"Directives — The Rules", body:"Everything Claude needs to know <em>before</em> it sees the user's message. This is your system prompt. It defines who Claude is in this context, what it's allowed to do, what it must never do, what format to respond in, what tone to use, and what to do when it's unsure. Think of it as the employee handbook you hand someone on their first day. The more specific, the better." },
     { type:"scenario-block", label:"Layer 2", title:"Orchestration — The Brain", body:"This is the AI making a decision. It reads the input, applies the directives, and decides what output to produce. Keep this layer doing one thing at a time. Don't ask it to read an email, classify it, decide urgency, write a reply, summarise the issue, and update a record in one prompt. Break it into separate steps. Each step should have a single, clear job." },
     { type:"scenario-block", label:"Layer 3", title:"Execution — The Hands", body:"Deterministic code carrying out the AI's decision. Sending the email. Writing the database record. Posting to Slack. Making the API call. No AI involved. This layer does exactly what it's told, every time, with no interpretation. If execution is failing, it's a code bug. If reasoning is wrong, it's a directive problem. Separation makes debugging possible." },
@@ -334,10 +391,10 @@ gets back to you shortly to help with this."` },
     { type:"heading", text:"Orchestration: Breaking Tasks Into Steps" },
     { type:"prose", content:`One prompt, one job. That's the rule. Chaining is how you handle complexity without making any single step fragile.` },
     { type:"bullets", items:[
-      "<strong>Step 1 — Classify:</strong> Ask Claude to read the message and output a single word: BOOKING, BILLING, COMPLAINT, GENERAL, URGENT. Nothing else.",
-      "<strong>Step 2 — Route:</strong> Use n8n's switch node to send the message down different paths based on that classification.",
-      "<strong>Step 3 — Respond:</strong> Each path has its own Claude step with a directive tuned specifically for that message type.",
-      "<strong>Step 4 — Log:</strong> All paths end with an execution step that writes the output to Supabase and sends the reply."
+      "<strong><strong>Step 1 —</strong> Classify:</strong> Ask Claude to read the message and output a single word: BOOKING, BILLING, COMPLAINT, GENERAL, URGENT. Nothing else.",
+      "<strong><strong>Step 2 —</strong> Route:</strong> Use n8n's switch node to send the message down different paths based on that classification.",
+      "<strong><strong>Step 3 —</strong> Respond:</strong> Each path has its own Claude step with a directive tuned specifically for that message type.",
+      "<strong><strong>Step 4 —</strong> Log:</strong> All paths end with an execution step that writes the output to Supabase and sends the reply."
     ]},
     { type:"tip-block", content:`<strong>The single-job test:</strong> Write the prompt's job in one sentence, starting with a verb. 'Classify this into one of 5 categories.' 'Write a reply.' 'Extract the name, number, and issue.' If you can't do it in one sentence, split the step.` },
     { type:"heading", text:"Execution: What Goes in Code vs AI" },
@@ -347,13 +404,35 @@ gets back to you shortly to help with this."` },
       { title:"Use code for...", body:"Sending emails. Writing database records. Formatting data. Making API calls. Routing logic (if classification = X, do Y). Date/time operations. Any arithmetic." }
     ]},
     { type:"warning-block", content:`<strong>Never have AI decide and act in the same step.</strong> If Claude decides something should be escalated and sends the escalation email in one move, you have no checkpoint. Separate the decision from the action. AI decides. Code acts.` },
+    { type:"heading", text:"Prompt Iteration: How to Get from Bad to Good" },
+    { type:"prose", content:`Your first system prompt will not be your best. Prompt engineering is a process of deliberate iteration — not inspiration. Here's the exact loop to follow:` },
+    { type:"numbered-list", items:[
+      "<strong>Write:</strong> Draft the directive using the 5-part structure. Don't overthink it. Get something on paper.",
+      "<strong>Test with 10 inputs:</strong> Run 10 varied inputs through the workflow. Include at least 2 edge cases you think might break it.",
+      "<strong>Identify failure modes:</strong> For any output that's wrong or off-tone, ask: is this a directive problem (Claude didn't know the rule) or a scope problem (Claude was asked to do too much in one step)?",
+      "<strong>Fix one thing:</strong> Change one element of the directive. Tighten a constraint, add a format rule, improve the fallback. One change at a time.",
+      "<strong>Re-test:</strong> Run the same 10 inputs again. Did the change help? Did it break anything else?",
+      "<strong>Repeat:</strong> Good prompts go through 5-10 iteration cycles. Production-grade prompts sometimes take 20+.",
+    ]},
+    { type:"heading", text:"Advanced Directive Patterns" },
+    { type:"prose", content:`Once you've got the basics down, these patterns dramatically improve reliability.` },
+    { type:"bullets", items:[
+      "<strong>Chain-of-thought:</strong> Add 'Think step by step before responding' to complex classification tasks. Claude's accuracy improves significantly when it reasons before answering.",
+      "<strong>Output anchoring:</strong> Tell Claude to start its response with a specific word or phrase. 'Begin your response with VERDICT:' makes outputs easier to parse in the next step.",
+      "<strong>Negative examples:</strong> Instead of only saying what Claude should do, explicitly show what bad output looks like. 'Do NOT write responses like this: [example]'. Dramatically reduces the most common failure modes.",
+      "<strong>Confidence gating:</strong> Ask Claude to rate its own confidence. 'If you are less than 80% confident this is the right classification, output UNSURE instead.' Routes uncertain cases to human review.",
+      "<strong>Persona consistency:</strong> Give Claude a name and personality for client-facing workflows. 'You are Aria, the virtual assistant for [Business]. You are warm, professional, and concise.' Keeps tone consistent even across edge cases.",
+    ]},
+    { type:"callout", content:`<strong>Saving your prompts:</strong> Keep a prompt library. Every directive you write that works well is an asset. Build a simple Supabase table or even a Notion page with: client name, workflow type, the full system prompt, version number, date, and notes on what changed. When you onboard a new client in the same industry, you're starting from a proven template.` },
   ],
   checklist:[
     "I can explain DOE without looking at notes",
     "I can write a system prompt using all 5 parts of the directive structure",
     "I always include a fallback instruction in every system prompt",
     "I can apply the single-job test to any prompt I write",
-    "I know which parts of a workflow should be AI vs code"
+    "I know which parts of a workflow should be AI vs code",
+    "I can run a 5-step prompt iteration cycle",
+    "I know at least 3 advanced directive patterns and when to use them"
   ]
 },
 
@@ -375,7 +454,7 @@ gets back to you shortly to help with this."` },
     { type:"svg-img", svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" style="width:100%;height:auto;display:block;background:#09080a">\n  <!-- canvas bg -->\n  <rect x="0" y="0" width="720" height="240" fill="#0e0a09"/>\n  <!-- grid dots -->\n  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">\n    <circle cx="12" cy="12" r="1" fill="#241c1a"/>\n  </pattern>\n  <rect width="720" height="240" fill="url(#dots)"/>\n  <!-- nodes -->\n  <rect x="40" y="90" width="120" height="52" rx="8" fill="#1a1412" stroke="#e8735a" stroke-width="1.5"/>\n  <rect x="40" y="90" width="120" height="16" rx="8" fill="#e8735a" opacity="0.15"/>\n  <text x="100" y="103" text-anchor="middle" fill="#e8735a" font-family="monospace" font-size="9" font-weight="700">WEBHOOK</text>\n  <text x="100" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Tally Form</text>\n  <text x="100" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">POST /webhook/xyz</text>\n  <!-- connector -->\n  <path d="M160,116 C190,116 200,116 220,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <defs>\n    <marker id="arr2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">\n      <path d="M0,0 L0,6 L7,3 z" fill="#e8735a" opacity="0.5"/>\n    </marker>\n  </defs>\n  <rect x="220" y="90" width="140" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="290" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">HTTP REQUEST</text>\n  <text x="290" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Claude API</text>\n  <text x="290" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">api.anthropic.com</text>\n  <path d="M360,116 C390,116 400,116 420,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <rect x="420" y="90" width="120" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="480" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">CODE</text>\n  <text x="480" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Parse response</text>\n  <text x="480" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">extract .content[0]</text>\n  <path d="M540,116 C570,116 580,116 600,116" stroke="#e8735a" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr2)"/>\n  <rect x="600" y="90" width="100" height="52" rx="8" fill="#1a1412" stroke="#241c1a" stroke-width="1.5"/>\n  <text x="650" y="103" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="9" font-weight="700">SEND EMAIL</text>\n  <text x="650" y="121" text-anchor="middle" fill="#e8e0dc" font-family="monospace" font-size="10">Resend API</text>\n  <text x="650" y="134" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="9">to: {{email}}</text>\n  <text x="360" y="200" text-anchor="middle" fill="#a09890" font-family="monospace" font-size="10">n8n canvas — your first workflow: Webhook → Claude → Parse → Send Email</text>\n</svg>', caption:"The n8n canvas — each box is a node. Connect them left to right and the workflow runs automatically." },
     { type:"tip-block", content:`<strong>Where to start in n8n:</strong> Three nodes. Webhook trigger → HTTP Request to Claude API → Send Email. That's it. Get comfortable with how data passes between nodes before you add anything else.` },
     { type:"heading", text:"The Claude API — Your AI Brain" },
-    { type:"prose", content:`You've used this already. But it's worth going deeper because how you structure the call makes a significant difference to output quality. The API is simple: system prompt sets the rules, user message is the input, Claude returns a response.` },
+    { type:"prose", content:`The API is simple on the surface: system prompt sets the rules, user message is the input, Claude returns a response. But how you structure that call makes a significant difference to output quality — so it's worth going deep here.` },
     { type:"code", content:`// The shape of every Claude API call you'll make
 {
   "model": "claude-sonnet-4-6",      // Always use this model
@@ -423,8 +502,26 @@ Authorization: Bearer YOUR_RESEND_KEY
     { type:"prose", content:`Tally fires a webhook the moment someone submits a form. That webhook hits n8n, your workflow starts. It's the simplest way to create a trigger for a client-facing process — enquiry forms, intake forms, quote requests, anything.` },
     { type:"tip-block", content:`<strong>Connecting Tally to n8n:</strong> Create a Webhook trigger in n8n, copy the URL. In Tally: Integrations → Webhooks → paste it. Submit a test form. The data shows up in n8n and you build from there. Takes about 3 minutes.` },
     { type:"heading", text:"Vercel — Hosting and Serverless Functions" },
-    { type:"prose", content:`Vercel is where anything web-facing lives. Client dashboards, custom API endpoints, portfolio site. The free tier is more than enough until you're doing serious volume.` },
-    { type:"prose", content:`The serverless functions are where it gets interesting for automation — lightweight backend logic that runs on demand, no server to maintain. You've already done this with the ArcadiaXPlus email setup. Same pattern applies to client projects.` },
+    { type:"prose", content:`Vercel is where anything web-facing lives. Client dashboards, custom API endpoints, portfolio site. The free tier covers everything until you're doing serious volume.` },
+    { type:"prose", content:`Serverless functions are the interesting bit. Deploy a function, give it a URL, and any workflow can call it via HTTP. Use them for: PDF text extraction (can't do in n8n natively), complex data transformations, calling multiple APIs and combining results, or any logic that needs more than a Code node.` },
+    { type:"heading", text:"How the Tools Connect: The Full Picture" },
+    { type:"prose", content:`Understanding how these tools talk to each other is as important as knowing what each one does individually. Here's the data flow for a typical client workflow:` },
+    { type:"bullets", items:[
+      "<strong>Tally → n8n:</strong> User submits form. Tally fires a webhook POST request to your n8n webhook URL, carrying all form fields as JSON.",
+      "<strong>n8n → Claude API:</strong> n8n formats the form data into a structured prompt, adds your system directive, and sends an HTTP POST to api.anthropic.com. Claude returns a JSON response.",
+      "<strong>n8n → Supabase:</strong> n8n extracts Claude's reply from the response, then sends a POST to your Supabase REST endpoint to log the enquiry, the reply, and metadata.",
+      "<strong>n8n → Resend:</strong> n8n takes Claude's reply and sends a POST to api.resend.com with the recipient email, subject, and HTML body. Resend delivers the email.",
+      "<strong>Supabase → n8n (optional):</strong> A real-time subscription in Supabase fires a webhook when a row changes. For example: when someone updates a record to 'approved', a new n8n workflow fires to send a confirmation.",
+    ]},
+    { type:"heading", text:"n8n vs Writing Custom Code — When to Use Each" },
+    { type:"prose", content:`n8n handles 80% of what you'll need. But knowing when to drop into custom code — via n8n's Code node, a Vercel function, or a standalone script — saves you from fighting n8n's limitations.` },
+    { type:"bullets", items:[
+      "<strong>Use n8n nodes for:</strong> Standard API integrations, simple data transformations, scheduling, webhook handling, email/Slack/database operations. n8n has 400+ pre-built integrations.",
+      "<strong>Use n8n Code node for:</strong> Custom JavaScript logic within a workflow. Parsing complex JSON, reformatting data, doing calculations, building dynamic prompts from arrays of data.",
+      "<strong>Use a Vercel function for:</strong> Heavy processing (PDF parsing, image processing), operations that need more than n8n's execution timeout, or any logic you want to reuse across multiple workflows via a shared API.",
+      "<strong>Use a standalone script for:</strong> One-off data migrations, bulk operations on existing datasets, or anything that needs to run on a schedule outside n8n.",
+    ]},
+    { type:"tip-block", content:`<strong>n8n's biggest limitation:</strong> Execution timeout on the cloud plan is 5 minutes. If you're processing large documents or making many sequential API calls, you might hit this. Solution: use a Vercel function for the heavy lifting and call it from n8n, or break the workflow into smaller chunks with intermediate Supabase checkpoints.` },
   ],
   checklist:[
     "I know what each of the 5 main tools does and how they connect",
@@ -468,15 +565,33 @@ Authorization: Bearer YOUR_RESEND_KEY
     ]},
     { type:"heading", text:"Using Outputs as Inputs" },
     { type:"prose", content:`Chaining is where things get genuinely powerful. The output from one Claude step feeds directly into the next. Each step handles one job, but together they tackle something complex.` },
-    { type:"example-card", title:"Chaining Example — Lead Qualification", body:"Step 1: Claude reads a contact form submission and outputs a JSON object: { 'urgency': 'high', 'budget_signal': 'mentioned £500/month', 'fit': 'good', 'reply_needed': true }<br><br>Step 2: n8n routes based on urgency. High-urgency leads go to a second Claude step that writes a personalised, high-effort reply. Low-urgency leads get a lighter template response.<br><br>Step 3: Both paths log to Supabase, and a Slack message is sent to the sales team for high-urgency leads." },
+    { type:"example-card", title:"Chaining Example — Lead Qualification", body:"<strong>Step 1</strong>: Claude reads a contact form submission and outputs a JSON object: { 'urgency': 'high', 'budget_signal': 'mentioned £500/month', 'fit': 'good', 'reply_needed': true }<br><br><strong>Step 2</strong>: n8n routes based on urgency. High-urgency leads go to a second Claude step that writes a personalised, high-effort reply. Low-urgency leads get a lighter template response.<br><br><strong>Step 3</strong>: Both paths log to Supabase, and a Slack message is sent to the sales team for high-urgency leads." },
     { type:"tip-block", content:`<strong>Getting structured output from Claude:</strong> Tell it explicitly — 'Respond ONLY with a valid JSON object. No preamble, no explanation, no backticks.' Then parse it in a Code node: JSON.parse($json.content[0].text). If you're not explicit, it'll wrap the JSON in a sentence and break your parser.` },
+    { type:"heading", text:"Token Economics — Understanding API Costs" },
+    { type:"prose", content:`Every Claude API call costs money based on tokens — roughly 4 characters per token. Understanding this keeps your costs predictable and helps you build efficient workflows.` },
+    { type:"bullets", items:[
+      "<strong>Input tokens:</strong> Everything you send to Claude — your system prompt, the user message, any documents. System prompts can be long without much cost per call if you use prompt caching.",
+      "<strong>Output tokens:</strong> What Claude sends back. Short, structured outputs (JSON classifications, brief replies) cost significantly less than long document summaries. Use max_tokens to cap this.",
+      "<strong>Prompt caching:</strong> If your system prompt is static (same for every call in a workflow), Anthropic caches it after the first call. Subsequent calls pay only for the new input. On high-volume workflows, this cuts costs by 70-90%.",
+      "<strong>Cost estimation:</strong> A typical enquiry workflow — 500 token system prompt, 200 token input, 150 token output — costs roughly £0.002 per run. At 1,000 runs/month, that's £2. Cost is almost never the constraint.",
+    ]},
+    { type:"heading", text:"Structuring Prompts for Consistency" },
+    { type:"prose", content:`The format of your prompt affects the format of the output. Use these patterns to get consistent, parseable responses every time.` },
+    { type:"bullets", items:[
+      "<strong>XML tags for structure:</strong> Claude responds well to XML-style tags in prompts. 'The enquiry is: <enquiry>{{message}}</enquiry> The business info is: <business_info>{{info}}</business_info>'. This makes it clear which part of the context is which.",
+      "<strong>Few-shot examples:</strong> Provide 2-3 examples of ideal input → output pairs in your system prompt. 'Here is an example of a well-classified enquiry: INPUT: [example] OUTPUT: BOOKING'. These dramatically anchor output format.",
+      "<strong>Explicit delimiters:</strong> When passing multiple pieces of data, use clear separators. '---CUSTOMER EMAIL---', '---END EMAIL---'. Prevents Claude from confusing different data sources.",
+      "<strong>Role anchoring:</strong> Remind Claude of its role at the end of long system prompts. 'Remember: your only job is to [specific task]. Do not do anything else.' This prevents context drift in long prompts.",
+    ]},
   ],
   checklist:[
     "I understand what the context window is and why it matters",
     "I can restructure messy input data before passing it to Claude",
     "I know the 3 ways to give Claude a knowledge base and when to use each",
     "I can handle missing or variable fields in workflow inputs",
-    "I can chain AI outputs as inputs to subsequent steps"
+    "I can chain AI outputs as inputs to subsequent steps",
+    "I understand how API costs work and how to estimate them",
+    "I know how to use XML tags, few-shot examples, and delimiters to improve outputs"
   ]
 },
 
@@ -520,13 +635,32 @@ Authorization: Bearer YOUR_RESEND_KEY
       "<strong>Notify clients of changes:</strong> If you update something significant, send a quick email: 'I've updated the workflow to include your new pricing. It's live now.' This is part of what they pay the retainer for.",
     ]},
     { type:"warning-block", content:`<strong>Never push changes directly to a live workflow.</strong> Copy it, make the change, test it against your test set, then push live. One bad update that fires wrong emails to 50 customers can end the client relationship overnight.` },
+    { type:"heading", text:"Building a Quality Scoring System" },
+    { type:"prose", content:`For client workflows, don't just check 'did it run' — check 'was the output good'. Build a lightweight scoring system into your monitoring.` },
+    { type:"bullets", items:[
+      "<strong>Output length check:</strong> If Claude was supposed to write a 100-word reply but returned 5 words, something went wrong. Flag any output shorter than a minimum threshold.",
+      "<strong>Keyword presence:</strong> For classification workflows, check that the output is one of the expected values. If the expected outputs are BOOKING / BILLING / GENERAL and Claude returns 'I think this is a booking enquiry', your parser will fail.",
+      "<strong>Sentiment sanity check:</strong> For customer-facing replies, run a second lightweight check: does the reply contain any negative language, apologies, or refusals that shouldn't be there? Log these for manual review.",
+      "<strong>Response time tracking:</strong> Log start and end timestamps for each workflow run. If average processing time jumps from 2s to 12s, something changed — might be API latency, might be a prompt that's now generating very long outputs.",
+    ]},
+    { type:"heading", text:"Client Handover: What to Document" },
+    { type:"prose", content:`When you deliver a workflow to a client, give them a handover document covering everything they need to know without needing to call you. This protects both of you.` },
+    { type:"bullets", items:[
+      "<strong>What the workflow does:</strong> One paragraph. Plain English. No jargon.",
+      "<strong>What triggers it:</strong> 'Every time someone submits the contact form at yoursite.com/contact'.",
+      "<strong>What they'll see:</strong> Screenshots of the Supabase log, the email that gets sent, any Slack notifications.",
+      "<strong>What to do if something seems wrong:</strong> 'Check the n8n execution log at [URL]. If you see red X marks, email me at [address]. Do not change anything until I've looked at it.'",
+      "<strong>What not to change:</strong> List the things that will break the workflow if modified — the form field names, the Supabase table structure, the email domain.",
+    ]},
   ],
   checklist:[
     "I know all 4 stages of testing and apply them before any launch",
     "I always build a test set of 20+ inputs before going live",
     "I've set up n8n error workflows and understand dead letter queues",
     "I know how to monitor a live workflow using execution logs and Supabase",
-    "I have a process for maintaining and updating workflows after launch"
+    "I have a process for maintaining and updating workflows after launch",
+    "I know how to build a quality scoring system for output validation",
+    "I can produce a complete client handover document"
   ]
 },
 
@@ -538,7 +672,7 @@ Authorization: Bearer YOUR_RESEND_KEY
     { type:"heading", text:"What You're Building" },
     { type:"prose", content:`An <strong>automated enquiry handler.</strong> Form submitted → Claude reads it → writes a reply → reply gets sent → log written to Supabase. Start to finish, no human involved. This is the thing businesses pay for most and the best first project to have on your portfolio.` },
     { type:"callout", content:`<strong>Why this specific build:</strong> It covers every concept — trigger, data processing, AI step, action, database log. And once you've built it once, reskinning it for a new client industry takes less than an hour. That's the point — this isn't a learning exercise, it's the foundation of your service.` },
-    { type:"heading", text:"Step 1 — Set Up Your Form (Tally)" },
+    { type:"heading", text:"<strong>Step 1 —</strong> Set Up Your Form (Tally)" },
     { type:"prose", content:`Set up a Tally form with these four fields:` },
     { type:"bullets", items:[
       "Full Name (Short text, required)",
@@ -547,7 +681,7 @@ Authorization: Bearer YOUR_RESEND_KEY
       "Message (Long text, required)"
     ]},
     { type:"prose", content:`Don't publish yet. Connect it to n8n first.` },
-    { type:"heading", text:"Step 2 — Create the n8n Workflow" },
+    { type:"heading", text:"<strong>Step 2 —</strong> Create the n8n Workflow" },
     { type:"numbered-list", items:[
       "<strong>Add a Webhook trigger node.</strong> Copy the webhook URL. In Tally, go to Integrations → Webhooks → paste the URL. Submit a test form to see data arrive in n8n.",
       "<strong>Add a Code node</strong> to extract and clean the fields. Pull out name, email, business_type, and message. Trim whitespace. Log the raw data to console for debugging.",
@@ -556,7 +690,7 @@ Authorization: Bearer YOUR_RESEND_KEY
       "<strong>Add a Supabase HTTP Request node</strong> to log the enquiry. POST to your Supabase table with: name, email, message, ai_reply, created_at, status: 'sent'.",
       "<strong>Add a Resend HTTP Request node</strong> to send the reply email. FROM: your sending address. TO: the form submitter's email. SUBJECT: 'Re: Your Enquiry'. BODY: Claude's reply.",
     ]},
-    { type:"heading", text:"Step 3 — Write Your Directive" },
+    { type:"heading", text:"<strong>Step 3 —</strong> Write Your Directive" },
     { type:"prose", content:`Use the five-part structure from Module 2. Here's a working template — swap in whatever business you're building for:` },
     { type:"code", content:`You are an enquiry assistant for [BUSINESS NAME].
 
@@ -585,7 +719,7 @@ FALLBACK:
 If you cannot answer confidently, reply:
 "Thanks for your message — someone from our team will be in 
 touch within 24 hours to help."` },
-    { type:"heading", text:"Step 4 — Test It Properly" },
+    { type:"heading", text:"<strong>Step 4 —</strong> Test It Properly" },
     { type:"bullets", items:[
       "Submit at least 5 entries covering: a direct question, a complaint, a booking request, a vague 'just checking in' message, and one with too much detail",
       "Check the n8n execution log for each run — did all steps complete?",
@@ -595,7 +729,7 @@ touch within 24 hours to help."` },
       "Try submitting a form with a very long message (500+ words). Does it still work?"
     ]},
 
-    { type:"heading", text:"Step 5 — Add Error Handling" },
+    { type:"heading", text:"<strong>Step 5 —</strong> Add Error Handling" },
     { type:"bullets", items:[
       "Set an Error Workflow in n8n workflow settings that sends you a Telegram message if anything fails",
       "Add an IF node after the Claude API call: if the response is empty or malformed, route to a fallback path that sends you an alert",
@@ -604,13 +738,34 @@ touch within 24 hours to help."` },
     { type:"heading", text:"What You Now Have" },
     { type:"prose", content:`A working, deployable enquiry handler. Not a demo — an actual product. A dental clinic or estate agent would pay £300–£800 for exactly this, because right now someone on their team is spending 30 minutes a day doing it manually.` },
     { type:"tip-block", content:`<strong>Record a Loom walkthrough the moment it's working.</strong> Submit a test enquiry on screen, show the reply arriving, show the Supabase log. Two minutes. This video closes more clients than any proposal you'll ever write.` },
+    { type:"heading", text:"How to Reskin This for Any Client in Under an Hour" },
+    { type:"prose", content:`The enquiry handler is the foundation. Once it's built, every new client in a different industry is mostly a copy-and-edit job. Here's what actually changes between clients:` },
+    { type:"bullets", items:[
+      "<strong>The system prompt:</strong> The business name, services, hours, pricing, tone, and fallback message. This is the main customisation. Budget 20-30 minutes to write a tight directive for a new client.",
+      "<strong>The Tally form:</strong> Change the business name in the branding, update the dropdown options if needed, set the receiving email. 10 minutes.",
+      "<strong>The Resend sending address:</strong> Set up the client's subdomain in Resend, configure DNS records, update the FROM address in n8n. 15 minutes if DNS propagates fast.",
+      "<strong>The Supabase table:</strong> Duplicate the existing table structure, rename it for the new client. If they need extra fields (e.g. 'service interest' for a gym), add them. 5 minutes.",
+      "<strong>The email subject line and HTML template:</strong> Update to match the client's brand. 10 minutes.",
+    ]},
+    { type:"heading", text:"The n8n Workflow: Key Nodes Explained" },
+    { type:"prose", content:`For people new to n8n, here's exactly what each node in the enquiry handler does and why it's there.` },
+    { type:"bullets", items:[
+      "<strong>Webhook node:</strong> Sits permanently open, listening for incoming HTTP POST requests. When Tally fires a submission, this node receives it and passes the data to the next step. You get a unique URL per workflow — never share it publicly.",
+      "<strong>Code node (cleanup):</strong> Runs a few lines of JavaScript to extract the fields you need from the raw webhook payload, trim whitespace, and set defaults for any missing values. Keeps the next steps clean.",
+      "<strong>HTTP Request node (Claude):</strong> Sends a POST request to the Anthropic API. You configure the URL, headers (including your API key), and body (which contains your system prompt and the structured input). The response comes back as JSON.",
+      "<strong>Code node (parse):</strong> Extracts Claude's text reply from the nested JSON response. The path is: $json.content[0].text. One line. This feeds into the next two nodes.",
+      "<strong>HTTP Request node (Supabase):</strong> Logs the enquiry. Sends a POST to your Supabase REST endpoint with all relevant fields. If this fails, you still have the n8n execution log — nothing is permanently lost.",
+      "<strong>HTTP Request node (Resend):</strong> Sends the reply email. The body is Claude's output, formatted as HTML. The 'to' address is pulled from the form submission data.",
+    ]},
   ],
   checklist:[
     "I've built the enquiry handler end to end",
     "I've tested it with at least 10 different form inputs",
     "All outputs are being logged in Supabase",
     "Error handling is in place and I've verified it works",
-    "I have a Loom recording of the workflow in action"
+    "I have a Loom recording of the workflow in action",
+    "I understand what each node in the workflow does",
+    "I can reskin this workflow for a new client in under an hour"
   ]
 },
 
@@ -621,7 +776,7 @@ touch within 24 hours to help."` },
   sections:[
     { type:"heading", text:"Pattern 1: Multi-Step Classification and Routing" },
     { type:"prose", content:`Instead of one AI step trying to handle every possible scenario, you classify first and then route. Each downstream handler has a focused directive for one specific case. The outputs are better and when something goes wrong, it's obvious why.` },
-    { type:"example-card", title:"Use Case: Law Firm Enquiry Triage", body:"Step 1 (Classify): Claude reads the enquiry and outputs one of: PERSONAL_INJURY / EMPLOYMENT / FAMILY / PROPERTY / CRIMINAL / OTHER.<br><br>Step 2 (Route): n8n switch node sends each classification down a different path. Each path has a Claude step with a directive written specifically for that practice area — using relevant legal terminology, specific team member names, appropriate next steps.<br><br>Step 3 (Log + Reply): All paths converge, log to Supabase with the classification, and send the reply. The firm's team can filter their CRM by practice area." },
+    { type:"example-card", title:"Use Case: Law Firm Enquiry Triage", body:"<strong>Step 1</strong> (Classify): Claude reads the enquiry and outputs one of: PERSONAL_INJURY / EMPLOYMENT / FAMILY / PROPERTY / CRIMINAL / OTHER.<br><br><strong>Step 2</strong> (Route): n8n switch node sends each classification down a different path. Each path has a Claude step with a directive written specifically for that practice area — using relevant legal terminology, specific team member names, appropriate next steps.<br><br><strong>Step 3</strong> (Log + Reply): All paths converge, log to Supabase with the classification, and send the reply. The firm's team can filter their CRM by practice area." },
     { type:"heading", text:"Pattern 2: Human-in-the-Loop" },
     { type:"prose", content:`Not everything should fire automatically. For anything high-stakes — a complaint, a legal query, a sensitive customer situation — you want a human to see the draft before it goes out. This pattern keeps the human in control while still automating 80% of the work.` },
     { type:"bullets", items:[
@@ -633,7 +788,7 @@ touch within 24 hours to help."` },
     { type:"prose", content:`It also makes the sale easier. Clients who are nervous about AI emailing their customers on autopilot are much more comfortable when you say 'you approve every reply before it sends — AI just writes the first draft'.` },
     { type:"heading", text:"Pattern 3: Scheduled Reports and Digests" },
     { type:"prose", content:`Not everything needs a trigger. Some of the most useful workflows just run on a schedule — pull data, synthesise it, send a report. Clients love these because the value shows up in their inbox every week without them doing anything.` },
-    { type:"example-card", title:"Use Case: Weekly Business Health Digest", body:"Trigger: n8n Schedule (Every Monday 9am)<br><br>Step 1: Query Supabase for last week's enquiry data (volume, types, response times)<br>Step 2: HTTP Request to their booking system API for appointment data<br>Step 3: Claude reads all the data and writes a 300-word executive summary: key metrics, notable trends, anything that needs attention<br>Step 4: Resend delivers a formatted HTML email report to the management team<br><br>Clients love this because it makes the value of the automation visible every week." },
+    { type:"example-card", title:"Use Case: Weekly Business Health Digest", body:"Trigger: n8n Schedule (Every Monday 9am)<br><br><strong>Step 1</strong>: Query Supabase for last week's enquiry data (volume, types, response times)<br><strong>Step 2</strong>: HTTP Request to their booking system API for appointment data<br><strong>Step 3</strong>: Claude reads all the data and writes a 300-word executive summary: key metrics, notable trends, anything that needs attention<br><strong>Step 4</strong>: Resend delivers a formatted HTML email report to the management team<br><br>Clients love this because it makes the value of the automation visible every week." },
     { type:"heading", text:"Pattern 4: Document Intelligence" },
     { type:"prose", content:`Businesses are buried in documents they don't have time to read properly. Anything that involves reading a PDF and pulling out the key bits is something a human hates doing and Claude is genuinely good at.` },
     { type:"bullets", items:[
@@ -644,7 +799,7 @@ touch within 24 hours to help."` },
     { type:"callout", content:`<strong>Passing documents to Claude:</strong> For PDFs, you need to extract the text first (use a PDF parsing service or a Python Vercel function with PyPDF2). For Word docs, similar. Then pass the extracted text as part of the user message. Claude can handle very long documents within its context window.` },
     { type:"heading", text:"Pattern 5: CRM Enrichment" },
     { type:"prose", content:`Every time a new lead comes in, a workflow fires and builds a profile on them before anyone on your client's team has even opened the record.` },
-    { type:"example-card", title:"Use Case: Sales Lead Enrichment", body:"Trigger: New row in Supabase contacts table<br><br>Step 1: Web search for the company name (using a search API)<br>Step 2: Claude reads the search results and extracts: company size estimate, industry, likely pain points, relevant news<br>Step 3: Claude generates 3 personalised conversation openers based on the enriched data<br>Step 4: All of this is written back to the contact record<br><br>The sales team opens a contact and already has research and opening lines ready." },
+    { type:"example-card", title:"Use Case: Sales Lead Enrichment", body:"Trigger: New row in Supabase contacts table<br><br><strong>Step 1</strong>: Web search for the company name (using a search API)<br><strong>Step 2</strong>: Claude reads the search results and extracts: company size estimate, industry, likely pain points, relevant news<br><strong>Step 3</strong>: Claude generates 3 personalised conversation openers based on the enriched data<br><strong>Step 4</strong>: All of this is written back to the contact record<br><br>The sales team opens a contact and already has research and opening lines ready." },
     { type:"heading", text:"Pattern 6: Multi-Channel Output" },
     { type:"prose", content:`One AI step, results going to five different places at once. This is how you make a workflow feel like it's doing a lot — because it is.` },
     { type:"bullets", items:[
@@ -655,13 +810,34 @@ touch within 24 hours to help."` },
       "Monthly invoice auto-generated from the activity log"
     ]},
     { type:"tip-block", content:`<strong>Patterns compound.</strong> First time you build a classification-routing workflow it takes a day. Second time, half a day. By the fifth client, it's two hours and you're barely thinking about it. That's the point — you're building a library of reusable systems, not starting from scratch each time.` },
+    { type:"heading", text:"Pattern 7: Feedback Loop Workflows" },
+    { type:"prose", content:`A feedback loop workflow gets smarter over time. Instead of just running and logging, it feeds outcomes back into the system to improve future runs.` },
+    { type:"example-card", title:"Use Case: Reply Quality Improvement", body:"When a client reviews and edits an AI-drafted reply before sending, the workflow logs the original draft and the edited version. Every week, a scheduled workflow queries Supabase for all edited replies, passes them to Claude with the instruction 'Identify what patterns in the original drafts led to edits. Suggest improvements to the system prompt.' The suggested improvements go to a human reviewer. Over time, the workflow's drafts need fewer corrections." },
+    { type:"heading", text:"Pattern 8: Multi-Agent Pipelines" },
+    { type:"prose", content:`Multi-agent pipelines use several Claude calls in sequence, each with a different role. The output of one agent becomes the input to the next. This separates concerns and dramatically improves accuracy on complex tasks.` },
+    { type:"bullets", items:[
+      "<strong>Agent 1 — Extract:</strong> Read the raw input and pull out structured data. Output JSON. No interpretation yet.",
+      "<strong>Agent 2 — Classify:</strong> Take the structured data and assign it to a category. One word output. Nothing else.",
+      "<strong>Agent 3 — Enrich:</strong> Based on the classification, look up relevant context from Supabase (e.g., the right pricing info for this enquiry type).",
+      "<strong>Agent 4 — Respond:</strong> Using the extracted data, classification, and enriched context, write the actual reply. Now Claude has exactly the right information in exactly the right format.",
+    ]},
+    { type:"prose", content:`Each agent has a tiny, focused directive. Each one is independently testable. When something goes wrong, you can isolate exactly which agent failed and why.` },
+    { type:"heading", text:"When to Use Agentic vs Reactive Patterns" },
+    { type:"prose", content:`Reactive workflows are triggered by events and run to completion in a linear sequence. Agentic workflows loop — the AI decides whether it's done or needs to take another action. Choose based on the task:` },
+    { type:"bullets", items:[
+      "<strong>Use reactive for:</strong> Enquiry handling, document processing, scheduled reports, data logging. Predictable, fast, easy to debug.",
+      "<strong>Use agentic for:</strong> Research tasks, lead enrichment (search → assess → search more → compile), anything where the number of steps depends on what the AI finds.",
+      "<strong>Agentic risk:</strong> Without hard loop limits, agents can run indefinitely and rack up API costs. Always set a maximum iteration count and a fallback exit condition.",
+    ]},
   ],
   checklist:[
     "I understand the multi-step classification and routing pattern",
     "I can explain human-in-the-loop and when to use it",
     "I know how to build a scheduled report workflow",
     "I understand how to pass documents to Claude for processing",
-    "I can describe at least 2 use cases for each pattern"
+    "I can describe at least 2 use cases for each pattern",
+    "I understand feedback loop workflows and multi-agent pipelines",
+    "I know when to use reactive vs agentic architecture"
   ]
 },
 
@@ -745,13 +921,33 @@ touch within 24 hours to help."` },
     { type:"prose", content:`One page. If you can't fit it in one page, you haven't scoped it tightly enough. A 12-page proposal doesn't signal thoroughness — it signals that you're not sure what you're building.` },
     { type:"example-card", title:"One-Page Proposal Structure", body:"<strong>The problem (2-3 sentences):</strong> Repeat back what they told you in their words. This shows you listened and understand their situation.<br><br><strong>What I'll build (3-5 bullets):</strong> Specific, concrete, no jargon. 'A Tally form that captures enquiries' not 'an integrated multi-channel intake solution'.<br><br><strong>What you get (2-3 bullets):</strong> Working workflow live on their system. Loom video walkthrough. 30 days of bug-fix support.<br><br><strong>Investment:</strong> £X build fee + £X/month retainer. One clear number. No ranges.<br><br><strong>Next step:</strong> 'If this looks right, I'll send a simple agreement and we can start this week.'" },
     { type:"tip-block", content:`<strong>Add a time anchor at the end.</strong> Something like: 'I've got capacity to start in the next couple of weeks — happy to hold that slot.' It's not pressure, it's just a natural way to move things forward.` },
+    { type:"heading", text:"How to Handle Pushback on Price" },
+    { type:"prose", content:`Price objections aren't rejections — they're requests for more justification. Here's how to respond to the most common ones without discounting.` },
+    { type:"bullets", items:[
+      "<strong>'That's a lot for software.'</strong> 'It's not really software — it's a system I build and maintain specifically for your business. The build includes all the setup, testing, and configuration. The retainer keeps it running and updated.' Reframe it as a service, not a product.",
+      "<strong>'We'll pay for it if it works.'</strong> 'I completely understand wanting proof first. The demo I'll show you on the call uses your actual enquiry types — that's the closest thing to live proof without building the full system. If you want to start small, I can scope a reduced first phase.' Offer scope reduction, not a success-based fee.",
+      "<strong>'Our budget is £X [lower than your quote].'</strong> 'I can work within that if we reduce the scope. The most valuable part of what I'm proposing is [the enquiry automation / the lead follow-up / etc.]. I can build just that first, and we can expand later once you've seen the return.' Reduce scope, not price.",
+      "<strong>'Can we pay monthly instead of upfront?'</strong> Occasional exception for established businesses. But make clear: 'I'll need the first month upfront before I start, then monthly from there. That covers my time while the build is in progress.'",
+    ]},
+    { type:"heading", text:"Structuring Contracts and Agreements" },
+    { type:"prose", content:`For your first few clients a simple Google Doc works. As you scale, get a proper service agreement. Here's what every agreement needs to cover:` },
+    { type:"bullets", items:[
+      "<strong>Scope definition:</strong> Exactly what you're building. Be specific. 'An n8n workflow that processes Tally form submissions, generates AI replies via the Anthropic API, sends them via Resend, and logs to Supabase.' Not 'AI automation system'.",
+      "<strong>Deliverables:</strong> Working workflow live in their environment, Loom walkthrough video, 30 days of bug-fix support.",
+      "<strong>Out of scope:</strong> List what you're explicitly not including. 'Integration with [their existing CRM] is out of scope for this engagement.'",
+      "<strong>Payment terms:</strong> 50% upfront, 50% on delivery. Net 14 days for invoices.",
+      "<strong>IP ownership:</strong> They own the workflows you build for them. You retain the right to reuse the patterns and techniques (not their specific business logic) for other clients.",
+      "<strong>Retainer terms:</strong> What's included monthly, what's billed additionally, 30-day notice to cancel.",
+    ]},
   ],
   checklist:[
     "I understand why hourly pricing is wrong for this business model",
     "I can explain all 3 pricing models and know which to use at my stage",
     "I know what my prices will be for my first 4 clients",
     "I can scope a project completely before quoting (inputs, AI job, outputs, boundary)",
-    "I can write a one-page proposal structure from memory"
+    "I can write a one-page proposal structure from memory",
+    "I can handle all 4 common price objections without discounting",
+    "I know what a service agreement needs to cover"
   ]
 },
 
@@ -766,12 +962,12 @@ touch within 24 hours to help."` },
     { type:"heading", text:"The Discovery Call — What to Ask" },
     { type:"prose", content:`The discovery call is not a pitch. Don't go in with a deck. Go in with questions and actually listen — most people tell you exactly what they need within the first few minutes if you give them space.` },
     { type:"numbered-list", items:[
-      "<strong>'Tell me a bit about the business — what do you do and who do you serve?'</strong> — Let them talk. You're learning context and building rapport.",
-      "<strong>'What does a typical week look like for your team?'</strong> — Surfaces daily operations. Listen for the word 'always', 'constantly', 'every week' — these signal repetitive tasks.",
-      "<strong>'What are the things that eat up the most time that don't really require your specific expertise?'</strong> — Direct shot at the automation opportunity.",
-      "<strong>'What happens when those things don't get done, or get done slowly?'</strong> — Quantifies the pain. 'Leads go cold.' 'Customers complain.' 'We lose bookings.' These become the ROI argument.",
-      "<strong>'Have you tried to solve this before? What happened?'</strong> — Tells you what's been attempted, why it failed, and what they're cautious about.",
-      "<strong>'If this was running automatically without anyone touching it — what would your team do with that time?'</strong> — Gets them to articulate the value themselves. Much more powerful than you telling them."
+      "<strong>'Tell me a bit about the business — what do you do and who do you serve?'</strong> Let them talk. You're learning context and building rapport.",
+      "<strong>'What does a typical week look like for your team?'</strong> Surfaces daily operations. Listen for the word 'always', 'constantly', 'every week' — these signal repetitive tasks.",
+      "<strong>'What are the things that eat up the most time that don't really require your specific expertise?'</strong> Direct shot at the automation opportunity.",
+      "<strong>'What happens when those things don't get done, or get done slowly?'</strong> Quantifies the pain. 'Leads go cold.' 'Customers complain.' 'We lose bookings.' These become the ROI argument.",
+      "<strong>'Have you tried to solve this before? What happened?'</strong> Tells you what's been attempted, why it failed, and what they're cautious about.",
+      "<strong>'If this was running automatically without anyone touching it — what would your team do with that time?'</strong> Gets them to articulate the value themselves. Much more powerful than you telling them."
     ]},
     { type:"callout", content:`<strong>The mirror technique:</strong> At the end of the discovery section, feed everything back to them: 'So what I'm hearing is — you're handling around 50 enquiries a week, your team spends about 2 hours a day on replies, and because of delays some leads go cold before you get to them. Is that right?' When they say yes, you've done most of the selling. The problem is now vivid and confirmed.` },
     { type:"heading", text:"The 60-Second Pitch" },
@@ -782,12 +978,12 @@ touch within 24 hours to help."` },
     { type:"prose", content:`During the call, ask them for a real example. Paste it into the form while they're watching. Thirty seconds later a reply lands. That moment does more selling than anything you could say.` },
     { type:"heading", text:"Handling Every Objection" },
     { type:"bullets", items:[
-      "<strong>'How do I know it'll work for us?'</strong> — 'Fair question. That's exactly what the demo is for. Tell me a typical message your team receives and let's test it right now.'",
-      "<strong>'It sounds expensive.'</strong> — 'What's your team's hourly cost? [They answer.] At [their rate], automating [X] hours a month pays this back in [Y] months. Most clients are ROI-positive in the first quarter.'",
-      "<strong>'We already have a system.'</strong> — 'What does that look like?' [Listen.] 'Most of the time when I hear that, it's actually someone on the team doing it manually — which is a system, but not an efficient one. Is that roughly what's happening?'",
-      "<strong>'I need to think about it.'</strong> — 'Of course. What's the main thing you'd want to think through? If it's the cost, I'm happy to talk through the ROI in more detail. If it's whether it'll actually work, that's what the demo is for.' [Find the real objection.]",
-      "<strong>'We tried something like this before and it didn't work.'</strong> — 'That's really helpful to know. What went wrong?' [Listen.] 'The most common reason these fail is vague instructions to the AI, or no human review process. Here's how I'd handle that...'",
-      "<strong>'Can you do it cheaper?'</strong> — 'I can look at scoping something smaller to fit a lower budget — what would be the single most valuable thing to automate?' [Reduce scope, not price per unit of value.]"
+      "<strong>'How do I know it'll work for us?'</strong> 'Fair question. That's exactly what the demo is for. Tell me a typical message your team receives and let's test it right now.'",
+      "<strong>'It sounds expensive.'</strong> 'What's your team's hourly cost? [They answer.] At [their rate], automating [X] hours a month pays this back in [Y] months. Most clients are ROI-positive in the first quarter.'",
+      "<strong>'We already have a system.'</strong> 'What does that look like?' [Listen.] 'Most of the time when I hear that, it's actually someone on the team doing it manually — which is a system, but not an efficient one. Is that roughly what's happening?'",
+      "<strong>'I need to think about it.'</strong> 'Of course. What's the main thing you'd want to think through? If it's the cost, I'm happy to talk through the ROI in more detail. If it's whether it'll actually work, that's what the demo is for.' [Find the real objection.]",
+      "<strong>'We tried something like this before and it didn't work.'</strong> 'That's really helpful to know. What went wrong?' [Listen.] 'The most common reason these fail is vague instructions to the AI, or no human review process. Here's how I'd handle that...'",
+      "<strong>'Can you do it cheaper?'</strong> 'I can look at scoping something smaller to fit a lower budget — what would be the single most valuable thing to automate?' [Reduce scope, not price per unit of value.]"
     ]},
     { type:"heading", text:"After They Say Yes — The Process" },
     { type:"numbered-list", items:[
@@ -799,13 +995,32 @@ touch within 24 hours to help."` },
       "Check in at 2 weeks: 'How's it running? Anything you'd like adjusted?' This is your retainer conversation — if they love it, ask about ongoing support."
     ]},
     { type:"tip-block", content:`<strong>The retainer conversation at 2 weeks:</strong> 'Now you can see it running — it'll need occasional tweaks as things change. New pricing, seasonal stuff, new services. I offer a maintenance package for £[X]/month that covers all of that and means you've got a direct line to me if anything needs attention. Want to add that on?'` },
+    { type:"heading", text:"Reading the Room: Signals That Tell You Where You Stand" },
+    { type:"prose", content:`In a sales conversation, what people don't say is as important as what they do. Learn to read these signals:` },
+    { type:"bullets", items:[
+      "<strong>Positive signal — specificity:</strong> When they start asking specific questions ('Would it work with our Gmail?', 'Can it handle French enquiries?'), they're mentally implementing it. Answer specifically. Don't pivot back to benefits.",
+      "<strong>Positive signal — numbers:</strong> When they start quantifying ('We get about 40 messages a week', 'My VA costs me £15/hr'), they're doing the ROI calculation themselves. Let them finish it.",
+      "<strong>Negative signal — vagueness:</strong> If answers stay abstract ('Yeah we have lots of messages', 'It could be useful') despite your questions, the pain isn't strong enough yet. Ask more specific quantifying questions before pitching.",
+      "<strong>Negative signal — consensus language:</strong> 'I'd need to discuss it with my team / partner / manager' early in the conversation usually means the budget holder isn't in the room. Ask: 'Would it make sense to get them on a quick call so I can answer their questions directly?'",
+      "<strong>Buying signal — future language:</strong> When they shift from 'would' to 'will' — 'This will save us time', 'We'll be able to focus on X' — they've mentally bought it. Stop selling and start discussing next steps.",
+    ]},
+    { type:"heading", text:"Following Up Without Being Annoying" },
+    { type:"prose", content:`Most deals don't close on the first call. Here's a follow-up sequence that moves things forward without feeling pushy:` },
+    { type:"bullets", items:[
+      "<strong>24 hours after the call:</strong> Send a brief email with a 2-sentence summary of what was discussed and the proposal attached. 'Great to chat earlier — I've attached the proposal based on what we covered. Happy to answer any questions.'",
+      "<strong>5 days later (no reply):</strong> One sentence. 'Just checking this didn't get buried — any questions on the proposal?' Nothing more.",
+      "<strong>10 days later (still no reply):</strong> Add value. 'I've been thinking about your [specific problem they mentioned] — one thing I didn't mention that might be relevant is [insight]. Worth a quick call if you're still considering it?'",
+      "<strong>After that:</strong> Move on. Put them in a 90-day re-engagement list. Circumstances change. A follow-up in 3 months catches people who weren't ready before.",
+    ]},
   ],
   checklist:[
     "I have all 6 discovery questions memorised",
     "I can deliver the 60-second pitch without looking at notes",
     "I have a demo version of the enquiry handler ready to show",
     "I have confident responses to all 6 common objections",
-    "I know the exact post-close process from agreement to retainer ask"
+    "I know the exact post-close process from agreement to retainer ask",
+    "I can read positive and negative buying signals during a conversation",
+    "I have a follow-up sequence mapped out for non-reply prospects"
   ]
 },
 
@@ -847,13 +1062,251 @@ touch within 24 hours to help."` },
       "<strong>Keep the client relationship:</strong> The relationship is your asset. Even when you subcontract builds, you remain the point of contact. This keeps clients with you, not with the person doing the work."
     ]},
     { type:"tip-block", content:`<strong>The number that matters:</strong> Monthly recurring revenue (MRR) from retainers. This is more valuable than one-off project fees because it's predictable. £1,000 MRR from 5 retainer clients is a better position than £2,000 in one-off fees that might not repeat. Build the retainer base first. Then add project fees on top.` },
+    { type:"heading", text:"Building Your Portfolio and Case Studies" },
+    { type:"prose", content:`Every client project is also a marketing asset. The case study format that converts best for this type of work is: before state → specific intervention → measurable after state. Numbers matter.` },
+    { type:"bullets", items:[
+      "<strong>Before state:</strong> 'The team was manually responding to 35-40 enquiries per week. Average response time was 4-6 hours. During busy periods, some enquiries weren't replied to at all.'",
+      "<strong>Intervention:</strong> 'We built an automated enquiry handling workflow: Tally form → n8n → Claude API → Resend. Every submission gets a personalised reply within 30 seconds.'",
+      "<strong>After state:</strong> 'Response time dropped from hours to under 30 seconds. The practice manager estimates they've recaptured 2-3 leads per week that previously went cold. Zero missed enquiries in the 6 weeks since launch.'",
+    ]},
+    { type:"prose", content:`Get the before-and-after numbers from your client at the 30-day check-in. Most are happy to share them — they're proud of the result too.` },
+    { type:"heading", text:"Positioning Your Service" },
+    { type:"prose", content:`How you describe what you do affects who reaches out and what they expect to pay. Avoid the word 'automation' — it sounds like a commodity. Use language that emphasises the outcome and the expertise.` },
+    { type:"bullets", items:[
+      "<strong>Instead of:</strong> 'I build AI automations for small businesses.'",
+      "<strong>Try:</strong> 'I build systems that handle the repetitive admin work in service businesses — so owners spend their time on work that actually requires them.'",
+      "<strong>Or more specific:</strong> 'I work with dental clinics and healthcare practices to automate patient enquiries and admin. Most clients save 5-10 hours of staff time per week within the first month.'",
+    ]},
+    { type:"heading", text:"Productising Your Service" },
+    { type:"prose", content:`At some point, stop selling custom projects and start selling products — defined solutions at fixed prices that you've built before and can deliver consistently.` },
+    { type:"bullets", items:[
+      "<strong>The Enquiry Engine:</strong> Automated enquiry handling for service businesses. Fixed scope. Fixed price. £600 setup + £200/month. You deliver this in a week because you've built it 20 times.",
+      "<strong>The Lead Capture System:</strong> Lead form → instant personalised follow-up → CRM logging → 3-touch follow-up sequence over 7 days. For gyms, clinics, PT studios. £800 setup + £200/month.",
+      "<strong>The Weekly Digest:</strong> Scheduled report from any data source, AI-written summary, delivered to the management team every Monday. £400 setup + £150/month.",
+      "<strong>Why productising works:</strong> You can describe it in one sentence. You know exactly what's in scope. You can price it confidently. You can fulfil it fast. Clients know what they're buying. The whole sales process speeds up.",
+    ]},
   ],
   checklist:[
     "I have a clear goal for each of the first 3 months",
     "I know exactly when and how to ask for referrals",
     "I have 2 strategies for increasing revenue per existing client",
     "I know what content I'd post to attract inbound enquiries",
-    "I understand when and how to subcontract once I scale"
+    "I understand when and how to subcontract once I scale",
+    "I can write a compelling before/after case study",
+    "I know how I'd describe my service in one sentence",
+    "I can define at least 2 productised service offerings"
+  ]
+}
+
+,
+
+// ─── 12: PROMPT ENGINEERING DEEP DIVE ───────────────────────────────────────
+{
+  badge:"Module 12 · Advanced", title:"Prompt Engineering: The Full Playbook", readTime:"20 min",
+  subtitle:"Everything that actually matters when writing instructions for AI — beyond the basics.",
+  sections:[
+    { type:"heading", text:"Why Prompt Engineering is a Skill, Not a Trick" },
+    { type:"prose", content:`Most people treat prompting like searching Google — type something in, hope for the best, adjust if it's wrong. That works for casual use. For production workflows that need to reliably handle thousands of inputs, it's not enough. Prompt engineering is a systematic discipline with repeatable techniques.` },
+    { type:"prose", content:`The goal isn't to write a clever prompt once. It's to write a prompt that produces the right output for 99% of inputs, handles edge cases gracefully, and can be updated when the business changes without breaking everything else.` },
+    { type:"heading", text:"The Anatomy of a Production Prompt" },
+    { type:"bullets", items:[
+      "<strong>Context block:</strong> Who is the AI, what does it know, what situation is it in. This is the foundational layer. Everything else builds on it.",
+      "<strong>Task block:</strong> The specific job for this call. One sentence. One job. If you need the AI to do two things, make two calls.",
+      "<strong>Input block:</strong> The actual data being processed. Clearly delimited from the instructions. Use XML tags: <customer_message>, <invoice_data>, <cv_text>.",
+      "<strong>Output specification:</strong> Exactly what format the response should take. JSON object with specific keys, plain text under 150 words, a single word from a defined list.",
+      "<strong>Examples block:</strong> 2-3 worked examples of input → output. This is the single highest-impact addition you can make to any prompt.",
+      "<strong>Constraints block:</strong> Hard limits. What Claude must never do, what it must always do, what to do when it's unsure.",
+    ]},
+    { type:"heading", text:"Few-Shot Prompting in Practice" },
+    { type:"prose", content:`Few-shot prompting — providing examples directly in the prompt — is the most reliable technique for improving output quality. Here's how to do it properly.` },
+    { type:"bullets", items:[
+      "<strong>Choose diverse examples:</strong> Don't show 3 examples of the same type of input. Show 3 different scenarios that cover different edge cases. The model generalises from what it sees.",
+      "<strong>Show the thinking, not just the answer:</strong> For complex classification, include a brief rationale in your examples. 'INPUT: [message]. REASONING: This mentions a price dispute, which is billing-related. OUTPUT: BILLING.' The model learns the reasoning pattern, not just the label.",
+      "<strong>Keep examples current:</strong> If your business adds new services or categories, update the examples. Stale examples actively mislead the model.",
+      "<strong>Negative examples matter:</strong> Include at least one example of what NOT to do. 'This is an example of a bad response: [example]. Do not do this.' Works better than just describing the rule.",
+    ]},
+    { type:"code", content:`// Example of a well-structured few-shot prompt
+You are an enquiry classifier for a dental clinic.
+
+TASK: Read the patient message and output exactly one of:
+BOOKING | BILLING | CLINICAL | GENERAL | URGENT
+
+EXAMPLES:
+INPUT: "Hi, I'd like to book a checkup for next week"
+OUTPUT: BOOKING
+
+INPUT: "I was charged twice on my last invoice, invoice #1042"
+OUTPUT: BILLING
+
+INPUT: "I've had a toothache for 3 days and it's getting worse"
+OUTPUT: URGENT
+
+INPUT: "What are your opening hours on Saturday?"
+OUTPUT: GENERAL
+
+CONSTRAINT: Output only the category word. Nothing else.
+If you cannot confidently classify, output: GENERAL
+
+MESSAGE TO CLASSIFY:
+<message>{{$json.message}}</message>` },
+    { type:"heading", text:"Chain-of-Thought for Complex Tasks" },
+    { type:"prose", content:`For tasks that require reasoning — not just pattern matching — telling Claude to think before it responds dramatically improves accuracy. Add one of these phrases to your directive:` },
+    { type:"bullets", items:[
+      "<strong>'Think step by step before responding'</strong> — general purpose. Works for most reasoning tasks.",
+      "<strong>'First identify X, then determine Y, then produce Z'</strong> — structured multi-step reasoning. Good for qualification or triage tasks.",
+      "<strong>'Briefly reason through this before giving your final answer'</strong> — produces a reasoning trace you can log for debugging.",
+      "<strong>Scratchpad pattern:</strong> Ask Claude to output its reasoning inside <thinking> tags, then its final answer outside them. Your parser strips the <thinking> block and uses only the final answer, but you log the full response for debugging.",
+    ]},
+    { type:"heading", text:"Handling Hallucinations" },
+    { type:"prose", content:`Hallucination — Claude confidently stating something that isn't true — is the most serious failure mode in production workflows. Here's how to minimise it:` },
+    { type:"bullets", items:[
+      "<strong>Ground every claim in provided data:</strong> 'Only use information from the <business_info> block below. Do not use any knowledge from outside this context.' Forces Claude to cite from what you gave it.",
+      "<strong>Explicit uncertainty handling:</strong> 'If you are not certain of an answer based on the information provided, say exactly: I don't have that information.' Models trained on helpfulness tend to answer even when they shouldn't — this overrides that.",
+      "<strong>Factual boundary setting:</strong> Tell Claude what it cannot claim. 'Do not state specific prices unless they appear in the pricing table below.' Eliminates the most common hallucination type for business workflows.",
+      "<strong>Output validation:</strong> Add a second cheap API call that checks the first output. 'Does the following reply contain any claims about prices, availability, or specific dates that are not in the business info? Answer YES or NO.' Route YES responses to human review.",
+    ]},
+    { type:"tip-block", content:`<strong>The hallucination test:</strong> After building a directive, deliberately ask Claude things it shouldn't know. Give it a customer question about a product you didn't include in the context. If it makes up an answer instead of triggering the fallback, your constraints need tightening.` },
+  ],
+  checklist:[
+    "I can write a production prompt with all 6 blocks",
+    "I know how to write effective few-shot examples",
+    "I can apply chain-of-thought prompting to complex reasoning tasks",
+    "I have a hallucination prevention strategy for every client workflow",
+    "I know how to use the scratchpad pattern for debugging"
+  ]
+},
+
+// ─── 13: BUILDING AN AUTOMATION BUSINESS INFRASTRUCTURE ─────────────────────
+{
+  badge:"Module 13 · Advanced", title:"Your Business Infrastructure", readTime:"16 min",
+  subtitle:"The systems, tools, and processes you need to run this as a proper business — not a freelance hustle.",
+  sections:[
+    { type:"heading", text:"The Difference Between Freelancing and a Business" },
+    { type:"prose", content:`A freelancer sells their time. A business delivers consistent outcomes through systems. The goal from day one is to build infrastructure that lets you take on more clients without proportionally more work. Every hour you spend on manual tasks that could be systematised is an hour not spent on building.` },
+    { type:"heading", text:"Your Client Management System" },
+    { type:"prose", content:`You don't need an expensive CRM. A well-structured Supabase database and a simple dashboard does everything you need at your scale.` },
+    { type:"bullets", items:[
+      "<strong>Clients table:</strong> ID, business name, contact name, email, phone, industry, status (prospect / active / churned), monthly fee, start date, notes.",
+      "<strong>Projects table:</strong> ID, client_id, project name, status (scoping / building / testing / live / maintenance), build fee paid, go-live date, workflow description.",
+      "<strong>Tasks table:</strong> ID, project_id, description, due date, status, time spent. Tracks what you're working on and how long things take — useful for improving estimates.",
+      "<strong>Monthly invoicing:</strong> Build a simple scheduled n8n workflow that runs on the 1st of each month, queries active clients, generates invoice data, and sends you a summary email with amounts to invoice. Takes 2 hours to build, saves time every month.",
+    ]},
+    { type:"heading", text:"Workflow Documentation Standards" },
+    { type:"prose", content:`Every workflow you build for a client needs documentation that allows you — or someone you subcontract to — to understand, maintain, and update it without starting from scratch. Set this standard from the beginning.` },
+    { type:"bullets", items:[
+      "<strong>Workflow README:</strong> Plain English description of what the workflow does, what triggers it, what it produces, and where the outputs go. One page max.",
+      "<strong>Prompt version log:</strong> Every time you update a system prompt, log the old version with a date and a brief note on what changed and why. Stored in Supabase or a simple Notion table.",
+      "<strong>Test set file:</strong> A CSV or Notion table of 20+ test inputs with expected outputs for each workflow. When you make a change, run all tests before pushing live.",
+      "<strong>Credential map:</strong> Which API keys are used, where they're stored in n8n, and who owns them (you or the client). Critical for handovers.",
+      "<strong>Known edge cases:</strong> Document the inputs that produce unexpected outputs. What you've seen, how you handled it, whether it's fixed or a known limitation.",
+    ]},
+    { type:"heading", text:"Invoicing, Accounting, and Legal" },
+    { type:"prose", content:`None of this needs to be complicated, but ignoring it causes real problems. Here's the minimum viable setup:` },
+    { type:"bullets", items:[
+      "<strong>Invoicing:</strong> Use Wave (free) or QuickBooks Simple Start (£14/mo). Send invoices as PDF. Include: your business name/address, client name/address, invoice number, date, line items (build fee / monthly retainer), payment terms (due within 14 days), bank details.",
+      "<strong>Separate business account:</strong> Open a business bank account before you invoice your first client. Monzo Business or Starling are free. Keeping business and personal money separate is a legal and tax requirement in the UK if you're operating as a sole trader.",
+      "<strong>Register as sole trader:</strong> If you're earning money in the UK, register with HMRC as self-employed. It takes 10 minutes online. You'll pay income tax and National Insurance on profits above the personal allowance.",
+      "<strong>Keep records:</strong> Log every business expense with a receipt. Software, subscriptions, any hardware used for work. These reduce your taxable profit.",
+      "<strong>Contracts:</strong> For any project over £300, use a written agreement. A Google Doc is fine early on. Include: what you're building, what's not included, payment terms, IP ownership, retainer terms.",
+    ]},
+    { type:"heading", text:"Setting Up Your Tech Stack Professionally" },
+    { type:"prose", content:`Your tools should look professional to clients who might occasionally see them. Here's how to set up each one properly.` },
+    { type:"bullets", items:[
+      "<strong>n8n:</strong> Use descriptive workflow names ('Bloom Dental — Enquiry Handler v2', not 'Workflow 1'). Add sticky notes to complex workflows explaining what each section does. Use n8n's credential store for all API keys — never paste raw keys into node fields.",
+      "<strong>Supabase:</strong> One project per client if they're paying a retainer. Shared project for your own internal tooling. Enable Row Level Security on every table from day one. Set up daily backups.",
+      "<strong>Resend:</strong> Verify every client's sending domain before go-live. Set up SPF, DKIM, and DMARC records — Resend has a wizard for this. Without these, emails go to spam.",
+      "<strong>Domain and email:</strong> Your own domain with professional email (Cloudflare for domain, Google Workspace £5/mo for email, or Zoho Mail free). hello@yourdomain.com looks infinitely better than a Gmail address when pitching.",
+    ]},
+    { type:"tip-block", content:`<strong>Portfolio site minimum viable version:</strong> One page. Your name or business name, what you do in one sentence, 2-3 case studies (or 'clients include: [industry 1], [industry 2]' if NDA-bound), a contact form. Deploy on Vercel. Takes one afternoon. Sends it to prospects before a call and the conversation starts from a completely different place.` },
+  ],
+  checklist:[
+    "I have a client management system set up (even a simple spreadsheet)",
+    "I have a documentation standard for every workflow I build",
+    "I'm registered as a sole trader or have a legal business structure",
+    "I have a separate business bank account",
+    "My n8n, Supabase, and Resend are set up professionally",
+    "I have a portfolio page or can create one"
+  ]
+},
+
+// ─── 14: THE TECHNICAL DEEP DIVE: APIS AND DATA ──────────────────────────────
+{
+  badge:"Module 14 · Advanced", title:"APIs, Webhooks & Data Flows", readTime:"18 min",
+  subtitle:"The technical fundamentals that let you connect anything to anything.",
+  sections:[
+    { type:"heading", text:"What an API Actually Is" },
+    { type:"prose", content:`API stands for Application Programming Interface. Practically: it's a way for two pieces of software to talk to each other over the internet. When n8n calls the Anthropic API, it sends a message in a specific format, and Anthropic's servers send back a response in a specific format. Both sides agree on the format in advance — that agreement is the API.` },
+    { type:"prose", content:`Every service you'll use in this business — Claude, Supabase, Resend, Tally, Stripe, Google Calendar — has an API. Once you understand how APIs work at a fundamental level, you can integrate anything.` },
+    { type:"heading", text:"Anatomy of an HTTP Request" },
+    { type:"prose", content:`All API calls are HTTP requests. There are four things that matter:` },
+    { type:"bullets", items:[
+      "<strong>Method:</strong> What you're doing. GET = retrieve data. POST = send/create data. PUT/PATCH = update existing data. DELETE = remove data. Most workflow actions are POST.",
+      "<strong>URL:</strong> Where you're sending the request. https://api.anthropic.com/v1/messages tells Claude's servers you want to send a message to the model.",
+      "<strong>Headers:</strong> Metadata about the request. Authentication (your API key), content type ('I'm sending JSON'), API version. Every API has required headers — check the documentation.",
+      "<strong>Body:</strong> The data you're sending. For most AI and workflow APIs, this is a JSON object. The model name, your system prompt, the user message — all in the body.",
+    ]},
+    { type:"heading", text:"JSON: The Universal Language" },
+    { type:"prose", content:`Almost every API communicates in JSON (JavaScript Object Notation). It's a text format that represents structured data. You need to be comfortable reading and writing it.` },
+    { type:"code", content:`// A JSON object — key:value pairs
+{
+  "name": "Sarah Mitchell",
+  "email": "sarah@example.com",
+  "enquiry_type": "BOOKING",
+  "message": "I'd like to book a checkup",
+  "is_new_patient": true,
+  "previous_visits": 3
+}
+
+// Nested object
+{
+  "customer": {
+    "name": "Sarah",
+    "email": "sarah@example.com"
+  },
+  "workflow_metadata": {
+    "processed_at": "2025-01-15T10:32:00Z",
+    "confidence_score": 0.94
+  }
+}
+
+// Array — list of items
+{
+  "classifications": ["BOOKING", "GENERAL"],
+  "tags": ["new_patient", "urgent"]
+}` },
+    { type:"heading", text:"Webhooks: Events That Push to You" },
+    { type:"prose", content:`A webhook is the reverse of an API call. Instead of you requesting data, an external service sends data to you when something happens. Tally sends a webhook when a form is submitted. Stripe sends a webhook when a payment succeeds. GitHub sends a webhook when code is pushed.` },
+    { type:"bullets", items:[
+      "<strong>How to receive webhooks in n8n:</strong> Add a Webhook trigger node. n8n gives you a unique URL. Paste that URL into the sending service. When the event fires, n8n receives the data and your workflow runs.",
+      "<strong>Webhook security:</strong> Most services sign webhooks with a secret — a hash that proves the request came from them and wasn't tampered with. n8n's webhook node can verify these signatures. Always enable this for production workflows.",
+      "<strong>Idempotency:</strong> Services sometimes send the same webhook twice (network issues, retries). Your workflow should handle this gracefully — check if you've already processed this event before acting on it. Use the event ID as a unique key in Supabase.",
+      "<strong>Webhook testing:</strong> Use ngrok during development to expose your local n8n instance to the internet so external services can reach it. For production, n8n Cloud's webhook URLs work out of the box.",
+    ]},
+    { type:"heading", text:"Authentication: API Keys vs OAuth" },
+    { type:"prose", content:`Two main ways to authenticate with APIs:` },
+    { type:"bullets", items:[
+      "<strong>API keys:</strong> A secret string you include in every request. Simple. Used by Anthropic, Resend, Supabase. Treat these like passwords — store them in n8n's credential store, never in code or prompts. Rotate them if they're ever exposed.",
+      "<strong>OAuth:</strong> A more complex flow where users authorise your app to access their account. Used by Google, Slack, Microsoft. n8n handles OAuth flows natively for most major services — you click 'Connect' and it handles the token exchange.",
+      "<strong>Bearer tokens:</strong> A type of API key included in the Authorization header: 'Authorization: Bearer YOUR_KEY'. This is how Resend and most modern APIs work.",
+      "<strong>Basic auth:</strong> Username and password encoded in the header. Older pattern. Some services still use it.",
+    ]},
+    { type:"heading", text:"Rate Limits and How to Handle Them" },
+    { type:"prose", content:`Every API limits how many requests you can make per second, minute, or day. Hitting a rate limit returns a 429 error. Production workflows need to handle this.` },
+    { type:"bullets", items:[
+      "<strong>Anthropic rate limits:</strong> Vary by tier. On the default tier: 50 requests/minute, 100k tokens/minute. For a workflow processing enquiries, you're unlikely to hit this. For bulk processing, you might.",
+      "<strong>Exponential backoff:</strong> When you get a 429, wait and retry. Standard pattern: wait 1 second, retry. If 429 again, wait 2 seconds. Then 4, 8, 16. Cap at 60 seconds. n8n's Error Workflow can implement this.",
+      "<strong>Queue workflows:</strong> For high-volume processing, don't call Claude directly in your webhook handler. Write the incoming data to a Supabase queue table, then have a separate scheduled workflow process the queue at a controlled rate.",
+      "<strong>Monitoring rate limit headers:</strong> Most APIs return headers telling you how many requests you have left. Log these in your Supabase audit table so you can see if you're approaching limits.",
+    ]},
+    { type:"tip-block", content:`<strong>Testing API calls outside n8n:</strong> Before building a workflow, test your API calls directly using a tool like Postman or Insomnia. Get the call working with the right headers and body first, then replicate it in n8n. Much faster to debug than inside a running workflow.` },
+  ],
+  checklist:[
+    "I understand what an API is and can make a basic HTTP request",
+    "I can read and write JSON confidently",
+    "I know how webhooks work and how to receive them in n8n",
+    "I understand the difference between API keys and OAuth",
+    "I have a strategy for handling rate limits in production workflows",
+    "I can test API calls in Postman before building in n8n"
   ]
 }
 
@@ -910,11 +1363,26 @@ function updateProgress() {
   document.getElementById('progressLabel').textContent = `${done} of ${total} modules complete`;
 }
 
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').style.display = 'none';
+}
+
 function toggleSidebarDesktop() {
-  document.querySelector('.shell').classList.toggle('sidebar-collapsed');
-  // On mobile, also handle the fixed sidebar
-  if (window.innerWidth <= 768) {
-    document.getElementById('sidebar').classList.toggle('open');
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const isOpen = sidebar.classList.contains('open');
+    if (isOpen) {
+      sidebar.classList.remove('open');
+      overlay.style.display = 'none';
+    } else {
+      sidebar.classList.add('open');
+      overlay.style.display = 'block';
+    }
+  } else {
+    document.querySelector('.shell').classList.toggle('sidebar-collapsed');
   }
 }
 
@@ -955,36 +1423,47 @@ function renderSection(s) {
     case 'tip-block': return `<div class="tip-block">${s.content}</div>`;
     case 'warning-block': return `<div class="warning-block">${s.content}</div>`;
     case 'bullets': {
-      // If items use <strong>Term:</strong> format → style-5 table
       const isTermDef = s.items.length > 0 && s.items[0].startsWith('<strong>');
       if (isTermDef) {
-        const rows = s.items.map(item => {
-          // Split on first </strong> to get term and definition
+        const cards = s.items.map(item => {
           const termMatch = item.match(/^<strong>(.*?)<\/strong>:?\s*(.*)/s);
           if (termMatch) {
-            return `<tr><td>${termMatch[1]}</td><td>${termMatch[2]}</td></tr>`;
+            let def = termMatch[2].replace(/^[—–]\s*/, '').trim();
+            return `<div class="def-card">
+              <div class="def-card-label">${termMatch[1]}</div>
+              <div class="def-card-body">${def}</div>
+            </div>`;
           }
-          return `<tr><td colspan="2">${item}</td></tr>`;
+          return `<div class="def-card"><div class="def-card-body">${item}</div></div>`;
         }).join('');
-        return `<div class="s5-wrap"><table class="s5-table"><tbody>${rows}</tbody></table></div>`;
+        return `<div class="def-cards">${cards}</div>`;
       }
-      // Otherwise: plain arrow list
       return `<ul class="bullet-list">${s.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
     }
     case 'numbered-list': {
-      // Term:definition format (<strong>Term:</strong> desc) → style-5 table
-      const isTermDef = s.items.length > 0 && s.items[0].match(/^<strong>[^<]+<\/strong>/);
-      // But sequential steps (like "Add a Webhook...") aren't term:def even if bold
-      const hasColon = s.items.length > 0 && s.items[0].match(/^<strong>[^<]+:<\/strong>/);
-      if (hasColon) {
-        const rows = s.items.map((item, idx) => {
-          const termMatch = item.match(/^<strong>(.*?):?<\/strong>:?\s*(.*)/s);
+      const firstItem = s.items[0] || '';
+      // Match: items starting with <strong>anything</strong> followed by text (colon, quote, or inline)
+      const hasBoldStart = firstItem.match(/^<strong>[^<]+<\/strong>/);
+      if (hasBoldStart) {
+        const cards = s.items.map((item, idx) => {
+          // Split at the first </strong> — term is inside <strong>, body is after
+          const termMatch = item.match(/^<strong>(.*?)<\/strong>:?\s*(.*)/s);
           if (termMatch) {
-            return `<tr><td>${termMatch[1]}</td><td>${termMatch[2]}</td></tr>`;
+            let def = termMatch[2].replace(/^[—–]\s*/, '').trim();
+            // If def is empty, the whole item is just the term (e.g. just a label)
+            const bodyHTML = def
+              ? `<div class="step-card-body">${def}</div>`
+              : '';
+            return `<div class="step-card">
+              <div class="step-card-header">
+                <div class="step-card-num">${idx+1}</div>
+                <div class="step-card-term">${termMatch[1]}</div>
+              </div>${bodyHTML}
+            </div>`;
           }
-          return `<tr><td>${idx+1}</td><td>${item}</td></tr>`;
+          return `<div class="step-card"><div class="step-card-header"><div class="step-card-num">${idx+1}</div><div class="step-card-term">${item}</div></div></div>`;
         }).join('');
-        return `<div class="s5-wrap"><table class="s5-table"><tbody>${rows}</tbody></table></div>`;
+        return `<div class="step-cards">${cards}</div>`;
       }
       return `<ol class="numbered-list">${s.items.map(i=>`<li>${i}</li>`).join('')}</ol>`;
     }
@@ -1051,7 +1530,9 @@ function showModule(idx) {
 
   updateNav();
   window.scrollTo(0,0);
-  if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+  if (window.innerWidth <= 768) { document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').style.display = 'none'; }
+  // Kick off scroll animations for newly rendered content
+  requestAnimationFrame(() => initScrollAnimations());
 }
 
 function toggleCheck(mi, ci) {
@@ -1088,7 +1569,51 @@ function updateNextBtn(idx) {
 function markComplete(idx) {
   completedModules.add(idx);
   updateProgress();
-  showModule(idx);
+  updateNav();
+  // Update just the complete button in place — no full re-render, no scroll
+  const btn = document.querySelector('.btn-complete');
+  if (btn) {
+    const span = document.createElement('span');
+    span.className = 'completed-badge';
+    span.textContent = '✓ Completed';
+    btn.replaceWith(span);
+  }
+}
+
+// ─── SCROLL ANIMATIONS ────────────────────────────────────────────────────────
+function initScrollAnimations() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  // Animate main content blocks
+  const animTargets = document.querySelectorAll(
+    '.prose, .callout, .tip-block, .warning-block, .example-card, .scenario-block, .code-block, .s5-wrap, .two-col, .mod-img-wrap, .bullet-list, .numbered-list, .checklist-wrap, .def-cards, .step-cards'
+  );
+  animTargets.forEach((el, i) => {
+    // Alternate animation types for variety
+    if (el.classList.contains('s5-wrap')) {
+      el.classList.add('anim-fade-up');
+    } else if (el.classList.contains('callout') || el.classList.contains('tip-block') || el.classList.contains('warning-block')) {
+      el.classList.add('anim-slide-left');
+    } else {
+      el.classList.add('anim-fade-up');
+    }
+    // Slight stagger for sibling elements
+    el.style.transitionDelay = Math.min(i * 0.03, 0.2) + 's';
+    io.observe(el);
+  });
+
+  // Also animate section headings
+  document.querySelectorAll('.section-heading').forEach(el => {
+    el.classList.add('anim-fade-in');
+    io.observe(el);
+  });
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
