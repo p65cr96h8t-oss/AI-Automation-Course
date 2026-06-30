@@ -1390,7 +1390,32 @@ let currentModule = 0;
 const completedModules = new Set();
 
 function initState() {
-  // checklistState removed — using simple completedModules Set
+  // Restore completed modules from localStorage
+  try {
+    const saved = localStorage.getItem('course_completed');
+    if (saved) {
+      JSON.parse(saved).forEach(i => completedModules.add(i));
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem('course_completed', JSON.stringify([...completedModules]));
+  } catch(e) {}
+}
+
+function saveCurrentModule(idx) {
+  try {
+    localStorage.setItem('course_current', idx);
+  } catch(e) {}
+}
+
+function getSavedModule() {
+  try {
+    const v = localStorage.getItem('course_current');
+    return v !== null ? parseInt(v) : 0;
+  } catch(e) { return 0; }
 }
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
@@ -1582,6 +1607,7 @@ function renderSection(s) {
 
 function showModule(idx) {
   currentModule = idx;
+  saveCurrentModule(idx);
   const m = modules[idx];
   const isCompleted = completedModules.has(idx);
   const isLast = idx === modules.length - 1;
@@ -1631,6 +1657,7 @@ function showModule(idx) {
 
 function markComplete(idx) {
   completedModules.add(idx);
+  saveState();
   updateProgress();
   updateNav();
   const wrap = document.querySelector('.page-done-wrap');
@@ -1825,7 +1852,11 @@ function closeLocked() {
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 initState();
 buildNav();
-showModule(0);
+const _startModule = getSavedModule();
+// Validate: only restore if that module is actually accessible
+const _canRestore = _startModule === 0 || completedModules.has(_startModule - 1) || completedModules.has(_startModule);
+showModule(_canRestore ? _startModule : 0);
+updateProgress();
 </script>
 </body>
 </html>
